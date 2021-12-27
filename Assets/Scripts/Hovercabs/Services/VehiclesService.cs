@@ -12,6 +12,8 @@ namespace Hovercabs.Services
     
     public class VehiclesService
     {
+        public int VehiclesCount { get; private set; }
+        
         private readonly Dictionary<string, GameObject> _vehicles;
         private readonly VehiclesLoader _vehiclesLoader;
         
@@ -47,7 +49,9 @@ namespace Hovercabs.Services
             EventBus.GetBus().Send(new OnResourceLoaded { ResourceName = vehicle.name });
             
             _vehicles.Add(id, vehicle);
-
+            
+            VehiclesCount++;
+            
             if (!_vehiclesLoader.IsDone) return;
             
             OnVehiclesLoaded?.Invoke();
