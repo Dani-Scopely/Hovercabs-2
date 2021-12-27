@@ -8,11 +8,13 @@ namespace Hovercabs.Managers
     public class GameManager : StateMachine
     {
         private ProfileService _profileService;
+        private VehiclesService _vehiclesService;
         
-        public void Init(ProfileService profileService)
+        public void Init(ProfileService profileService, VehiclesService vehiclesService)
         {
             _profileService = profileService;
-            SetState(new LoadingState(this, OnLoaded));
+            _vehiclesService = vehiclesService;
+            SetState(new LoadingState(this, vehiclesService, OnLoaded));
         }
 
         private void OnLoaded()

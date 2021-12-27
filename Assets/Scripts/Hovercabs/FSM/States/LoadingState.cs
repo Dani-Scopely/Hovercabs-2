@@ -18,9 +18,11 @@ namespace Hovercabs.FSM.States
         private readonly Action _onLoaded;
         private bool _isLoadingDependencies = false;
         private LoadingController _loadingController;
+        private readonly VehiclesService _vehiclesService;
         
-        public LoadingState(GameManager gameManager, Action onLoaded) : base(gameManager)
+        public LoadingState(GameManager gameManager, VehiclesService vehiclesService, Action onLoaded) : base(gameManager)
         {
+            _vehiclesService = vehiclesService;
             _onLoaded = onLoaded;
         }
 
@@ -33,11 +35,11 @@ namespace Hovercabs.FSM.States
         {
             if (_operation.isDone && !_isLoadingDependencies)
             {
+                _isLoadingDependencies = true;
+                
                 _loadingController = Object.FindObjectOfType<LoadingController>();
-                
-                InitDependencies();
-                
-                return;
+
+                _loadingController.Init(_vehiclesService, OnResourcesInitialized);
             }
         }
 
@@ -46,17 +48,9 @@ namespace Hovercabs.FSM.States
             _isLoadingDependencies = false;
         }
         
-        private void InitDependencies()
+        private void OnResourcesInitialized()
         {
-            _isLoadingDependencies = true;
-            UnityMainThreadDispatcher.Instance().Enqueue(EInitDependencies());
-        }
-        
-        private IEnumerator EInitDependencies()
-        {
-            Debug.Log("Initializing dependencies...");
             _onLoaded?.Invoke();
-            yield return null;
         }
     }
 }

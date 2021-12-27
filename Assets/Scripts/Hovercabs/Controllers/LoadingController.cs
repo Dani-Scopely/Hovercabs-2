@@ -1,23 +1,59 @@
-﻿using TMPro;
+﻿using System;
+using Hovercabs.Events;
+using Hovercabs.Services;
+using TMPro;
 using UnityEngine;
+using Utils;
 
 namespace Hovercabs.Controllers
 {
-    public class LoadingController : MonoBehaviour
+    public class LoadingController : MonoBehaviour, IObserver
     {
-        private int _maxAssets = 0;
-        private int _currentAssets = 0;
-        [SerializeField] private TextMeshProUGUI assetsLoadedProgressTxt;
+        private Action _onResourcesInitialized;
+        private VehiclesService _vehiclesService;
         
-        public void Init(int maxAssets)
+        [SerializeField] private TextMeshProUGUI assetsLoadedProgressTxt;
+
+        private void Awake()
         {
-            _maxAssets = maxAssets;
+            EventBus.GetBus().Register(this, typeof(OnResourceLoaded));
         }
 
-        public void UpdateAssetsLoaded(int assetsLoaded)
+        public void Init(VehiclesService vehiclesService, Action onResourcesInitialized)
         {
-            _currentAssets += assetsLoaded;
-            assetsLoadedProgressTxt.text = $"Loading {_currentAssets} of {_maxAssets} assets.";
+            _onResourcesInitialized = onResourcesInitialized;
+            _vehiclesService = vehiclesService;
+            InitResources();
+        }
+        
+        private void InitResources()
+        {
+            InitVehiclesResources();
+        }
+
+        private void InitVehiclesResources()
+        {
+            _vehiclesService.OnVehiclesLoaded += OnVehiclesLoaded;
+            _vehiclesService.Init();
+        }
+
+        private void OnVehiclesLoaded()
+        {
+            _vehiclesService.OnVehiclesLoaded -= OnVehiclesLoaded;
+            _onResourcesInitialized?.Invoke();
+        }
+
+        private void OnDestroy()
+        {
+            EventBus.GetBus().Unregister(this);
+        }
+
+        public void OnEvent(IEvent pEvent)
+        {
+            if (pEvent is OnResourceLoaded onResourceLoaded)
+            {
+                assetsLoadedProgressTxt.text = onResourceLoaded.ResourceName;
+            }
         }
     }
 }
