@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace Hovercabs.Controllers
 {
-    public class VehiclePreviewController : MonoBehaviour
+    public class VehicleShowcaseController : MonoBehaviour
     {
-        [SerializeField] private float rotationSpeed;
+        public float rotationSpeed;
+        
         [SerializeField] private string id;
         
         private void Update()

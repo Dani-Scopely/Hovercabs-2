@@ -13,15 +13,16 @@ namespace Hovercabs.Services
     public class VehiclesService
     {
         public int VehiclesCount { get; private set; }
+
+        private readonly List<Vehicle> _vehicles;
         
-        private readonly Dictionary<string, GameObject> _vehicles;
         private readonly VehiclesLoader _vehiclesLoader;
         
         public OnVehiclesLoaded OnVehiclesLoaded { get; set; }
         
         public VehiclesService()
         {
-            _vehicles = new Dictionary<string, GameObject>();
+            _vehicles = new List<Vehicle>();
             _vehiclesLoader = new VehiclesLoader(OnVehicleLoaded);
         }
 
@@ -30,26 +31,22 @@ namespace Hovercabs.Services
             _vehiclesLoader.Load();    
         }
 
-        public GameObject GetVehicle(Vehicle vehicle)
+        public Vehicle GetVehicle(Vehicle vehicle)
         {
-            var id = vehicle.Id;
-
-            var result = _vehicles.TryGetValue(id, out var v);
-
-            if (result)
-            {
-                return _vehicles[id];
-            }
-
-            throw new Exception($"Vehicle {vehicle.Id} cannot be loaded.");
+            return _vehicles.Find(p => p.Id == vehicle.Id);
         }
 
-        private void AddVehicle(string id, GameObject vehicle)
+        public Vehicle GetVehicleByIndex(int index)
         {
-            EventBus.GetBus().Send(new OnResourceLoaded { ResourceName = vehicle.name });
+            return _vehicles[index];
+        }
+
+        private void AddVehicle(Vehicle vehicle)
+        {
+            EventBus.GetBus().Send(new OnResourceLoaded { ResourceName = vehicle.Id });
             
-            _vehicles.Add(id, vehicle);
-            
+            _vehicles.Add(vehicle);
+
             VehiclesCount++;
             
             if (!_vehiclesLoader.IsDone) return;
@@ -57,9 +54,9 @@ namespace Hovercabs.Services
             OnVehiclesLoaded?.Invoke();
         }
         
-        private void OnVehicleLoaded(GameObject vehicle)
+        private void OnVehicleLoaded(Vehicle vehicle)
         {
-            AddVehicle(vehicle.name, vehicle);
+            AddVehicle(vehicle);
         }
     }
 }

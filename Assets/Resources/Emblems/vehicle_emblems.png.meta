@@ -1,0 +1,492 @@
+fileFormatVersion: 2
+guid: af487362b3315c147b354cb9c1e28370
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6713650518350627489
+    second: jp_mid
+  - first:
+      213: -5794382578081495184
+    second: jp_top
+  - first:
+      213: 2825148440233703123
+    second: jp_celica
+  - first:
+      213: -7045217869030421545
+    second: jp_carga0
+  - first:
+      213: 9173388446537265530
+    second: jp_mauricio
+  - first:
+      213: -4650842665182119148
+    second: jp_javi
+  - first:
+      213: -2430113994781048717
+    second: jp_carga1
+  - first:
+      213: -3464496458167568919
+    second: jp_xwind
+  - first:
+      213: 2958540979712078020
+    second: jp_low
+  - first:
+      213: -8230101829862930227
+    second: jp_46
+  - first:
+      213: 448242972994834158
+    second: jp_huevo
+  - first:
+      213: -1821959852234312386
+    second: jp_mafia
+  - first:
+      213: -5453446883392806842
+    second: jp_carga2
+  - first:
+      213: 2554100596524748515
+    second: jp_hippie
+  - first:
+      213: -1241045791277537721
+    second: jp_cadillac
+  - first:
+      213: -9050954936610687866
+    second: jp_paquita
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: jp_mid
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 823
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5df79b8c6254d2a0800000000000000
+      internalID: -6713650518350627489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jp_top
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 823
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0778db4ceb7369fa0800000000000000
+      internalID: -5794382578081495184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jp_celica
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 660
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d6f0e1c981f43720800000000000000
+      internalID: 2825148440233703123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jp_carga0
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 660
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7db053fdcab5a3e90800000000000000
+      internalID: -7045217869030421545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jp_mauricio
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 497
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a71b68e703c6e4f70800000000000000
+      internalID: 9173388446537265530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jp_javi
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 497
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41bb69bbc33e47fb0800000000000000
+      internalID: -4650842665182119148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jp_carga1
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 498
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 370ce517230864ed0800000000000000
+      internalID: -2430113994781048717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jp_xwind
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 334
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e5b255b3d2abefc0800000000000000
+      internalID: -3464496458167568919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jp_low
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 334
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c0bc259859de0920800000000000000
+      internalID: 2958540979712078020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jp_46
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 334
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc84abd9dfdc8cd80800000000000000
+      internalID: -8230101829862930227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jp_huevo
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 171
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eee0c6aeb9a783600800000000000000
+      internalID: 448242972994834158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jp_mafia
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 171
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e35fc84ea2917b6e0800000000000000
+      internalID: -1821959852234312386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jp_carga2
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 171
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64029e104f67154b0800000000000000
+      internalID: -5453446883392806842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jp_hippie
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ee8878d5fcf17320800000000000000
+      internalID: 2554100596524748515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jp_cadillac
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 8
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746a8ec9d6be6cee0800000000000000
+      internalID: -1241045791277537721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jp_paquita
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 8
+        width: 310
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 684704d607c846280800000000000000
+      internalID: -9050954936610687866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5b4f25e1a340f0145b6a42ca0dad5b27
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
