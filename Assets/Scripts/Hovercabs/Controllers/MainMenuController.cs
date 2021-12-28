@@ -1,7 +1,12 @@
 using System;
+using Hovercabs.Controllers.Popups;
+using Hovercabs.Enums;
+using Hovercabs.Events;
+using Hovercabs.Managers;
 using Hovercabs.Services;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 
 namespace Hovercabs.Controllers
 {
@@ -11,20 +16,23 @@ namespace Hovercabs.Controllers
         private int _currentVehicleIndex = 0;
         private int _maxVehicles = 0;
 
+        [SerializeField] private MainMenuPopupsController _mainMenuPopupsController;
         [SerializeField] private ShowcaseController showcaseController;
         [SerializeField] private Button btnLeftArrow;
         [SerializeField] private Button btnRightArrow;
         [SerializeField] private Button btnPlayMultiplayer;
         [SerializeField] private Button btnPlay;
+        [SerializeField] private Button btnSettings;
         [SerializeField] private AudioSource audioArrows;
         [SerializeField] private AudioSource audioBackground;
-        
+
         private void Awake()
         {
             btnLeftArrow.onClick.AddListener(OnLeftArrowClick);
             btnRightArrow.onClick.AddListener(OnRightArrowClick);
             btnPlay.onClick.AddListener(OnPlay);
             btnPlayMultiplayer.onClick.AddListener(OnPlayMultiplayer);
+            btnSettings.onClick.AddListener(OnSettings);
         }
 
         public void Init(VehiclesService vehiclesService)
@@ -63,6 +71,11 @@ namespace Hovercabs.Controllers
         private void OnPlayMultiplayer()
         {
             Debug.Log("Lets go to play multiplayer!");   
+        }
+
+        private void OnSettings()
+        {
+            _mainMenuPopupsController.Show(PopupType.Settings);
         }
 
         private void SetVehicle()

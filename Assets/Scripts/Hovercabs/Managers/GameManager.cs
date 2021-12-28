@@ -1,7 +1,10 @@
-﻿using Hovercabs.FSM;
+﻿using System;
+using Hovercabs.Events;
+using Hovercabs.FSM;
 using Hovercabs.FSM.States;
 using Hovercabs.Models;
 using Hovercabs.Services;
+using Utils;
 
 namespace Hovercabs.Managers
 {
@@ -25,6 +28,11 @@ namespace Hovercabs.Managers
         private void OnAuthenticated(bool isAuthenticated)
         {
             SetState(new MainMenuState(this, _vehiclesService));
+        }
+
+        private void OnDestroy()
+        {
+            
         }
     }
 }
