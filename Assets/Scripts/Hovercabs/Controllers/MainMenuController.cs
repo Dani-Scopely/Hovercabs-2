@@ -14,6 +14,8 @@ namespace Hovercabs.Controllers
         [SerializeField] private ShowcaseController showcaseController;
         [SerializeField] private Button btnLeftArrow;
         [SerializeField] private Button btnRightArrow;
+        [SerializeField] private Button btnPlayMultiplayer;
+        [SerializeField] private Button btnPlay;
         [SerializeField] private AudioSource audioArrows;
         [SerializeField] private AudioSource audioBackground;
         
@@ -21,6 +23,8 @@ namespace Hovercabs.Controllers
         {
             btnLeftArrow.onClick.AddListener(OnLeftArrowClick);
             btnRightArrow.onClick.AddListener(OnRightArrowClick);
+            btnPlay.onClick.AddListener(OnPlay);
+            btnPlayMultiplayer.onClick.AddListener(OnPlayMultiplayer);
         }
 
         public void Init(VehiclesService vehiclesService)
@@ -51,6 +55,16 @@ namespace Hovercabs.Controllers
             SetVehicle();
         }
 
+        private void OnPlay()
+        {
+            Debug.Log("Lets go to play solo!");
+        }
+        
+        private void OnPlayMultiplayer()
+        {
+            Debug.Log("Lets go to play multiplayer!");   
+        }
+
         private void SetVehicle()
         {
             showcaseController.SetVehicle(_vehiclesService.GetVehicleByIndex(_currentVehicleIndex));
@@ -60,6 +74,8 @@ namespace Hovercabs.Controllers
         {
             btnLeftArrow.onClick.RemoveAllListeners();
             btnRightArrow.onClick.RemoveAllListeners();
+            btnPlay.onClick.RemoveAllListeners();
+            btnPlayMultiplayer.onClick.RemoveAllListeners();
             audioArrows.Stop();
             audioBackground.Stop();
         }
