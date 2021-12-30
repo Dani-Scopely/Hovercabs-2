@@ -1,9 +1,13 @@
-﻿using Hovercabs.Controllers;
+﻿using System;
+using Hovercabs.Controllers;
+using Hovercabs.Events;
 using Hovercabs.FSM.States.Base;
 using Hovercabs.Managers;
 using Hovercabs.Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utils;
+using Object = UnityEngine.Object;
 
 namespace Hovercabs.FSM.States
 {
@@ -14,7 +18,7 @@ namespace Hovercabs.FSM.States
         private readonly VehiclesService _vehiclesService;
         private readonly ProfileService _profileService;
 
-        public MainMenuState(GameManager gameManager, ProfileService profileService, VehiclesService vehiclesService) : base(gameManager)
+        public MainMenuState(GameManager gameManager, ProfileService profileService, VehiclesService vehiclesService, string lastSceneId) : base(gameManager, lastSceneId)
         {
             _vehiclesService = vehiclesService;
             _profileService = profileService;
@@ -22,7 +26,7 @@ namespace Hovercabs.FSM.States
 
         public override void Start()
         {
-            _operation = SceneManager.UnloadSceneAsync("Loading");
+            _operation = SceneManager.UnloadSceneAsync(LastSceneId);
             _operation.completed += OnLoadingSceneUnloaded;
         }
 
@@ -37,7 +41,23 @@ namespace Hovercabs.FSM.States
         {
             _operation.completed -= OnMainMenuSceneLoaded;
             _mainMenuController = Object.FindObjectOfType<MainMenuController>();
-            _mainMenuController.Init(_profileService, _vehiclesService);
+            _mainMenuController.Init(_profileService, _vehiclesService, OnPlaySingle, OnPlayMultiplayer);
+        }
+
+        private void OnPlaySingle()
+        {
+            EventBus.GetBus().Send(new OnStateChanged
+            {
+                State = new GameplayState(GameManager)
+            });
+        }
+
+        private void OnPlayMultiplayer()
+        {
+            EventBus.GetBus().Send(new OnStateChanged
+            {
+                State = new GameplayState(GameManager)
+            });
         }
     }
 }

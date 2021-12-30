@@ -17,6 +17,8 @@ namespace Hovercabs.Controllers
     {
         private VehiclesService _vehiclesService;
         private ProfileService _profileService;
+        private Action _onPlaySingle;
+        private Action _onPlayMultiplayer;
         private int _currentVehicleIndex = 0;
         private int _maxVehicles = 0;
 
@@ -40,8 +42,11 @@ namespace Hovercabs.Controllers
             btnSettings.onClick.AddListener(OnSettings);
         }
 
-        public void Init(ProfileService profileService, VehiclesService vehiclesService)
+        public void Init(ProfileService profileService, VehiclesService vehiclesService, Action onPlaySingle, Action onPlayMultiplayer)
         {
+            _onPlaySingle = onPlaySingle;
+            _onPlayMultiplayer = onPlayMultiplayer;
+            
             audioBackground.Play();
 
             _profileService = profileService;
@@ -72,12 +77,12 @@ namespace Hovercabs.Controllers
 
         private void OnPlay()
         {
-            Debug.Log("Lets go to play solo!");
+            _onPlaySingle?.Invoke();
         }
         
         private void OnPlayMultiplayer()
         {
-            Debug.Log("Lets go to play multiplayer!");   
+            _onPlayMultiplayer?.Invoke();
         }
 
         private void OnSettings()

@@ -1,0 +1,12 @@
+{
+  "Features": [
+    {
+      "Id": 0,
+      "IsEnabled": false
+    },
+    {
+      "Id": 1,
+      "IsEnabled": false
+    }
+  ]
+}
