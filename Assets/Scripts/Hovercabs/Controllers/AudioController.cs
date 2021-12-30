@@ -16,7 +16,8 @@ namespace Hovercabs.Controllers
         private void Awake()
         {
             _audioService = new AudioService();
-            audioSource.volume = _audioService.Get(audioMode);
+            var p = _audioService.Get(audioMode);
+            audioSource.volume = p;
             
             EventBus.GetBus().Register(this, typeof(OnAudioChanged));
         }
