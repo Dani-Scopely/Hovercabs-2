@@ -3,7 +3,10 @@ using Hovercabs.Controllers.Popups;
 using Hovercabs.Enums;
 using Hovercabs.Events;
 using Hovercabs.Managers;
+using Hovercabs.Models;
+using Hovercabs.Observers;
 using Hovercabs.Services;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Utils;
@@ -13,6 +16,7 @@ namespace Hovercabs.Controllers
     public class MainMenuController : MonoBehaviour
     {
         private VehiclesService _vehiclesService;
+        private ProfileService _profileService;
         private int _currentVehicleIndex = 0;
         private int _maxVehicles = 0;
 
@@ -25,6 +29,7 @@ namespace Hovercabs.Controllers
         [SerializeField] private Button btnSettings;
         [SerializeField] private AudioSource audioArrows;
         [SerializeField] private AudioSource audioBackground;
+        [SerializeField] private XenitsObserver xenitsObserver;
 
         private void Awake()
         {
@@ -35,13 +40,15 @@ namespace Hovercabs.Controllers
             btnSettings.onClick.AddListener(OnSettings);
         }
 
-        public void Init(VehiclesService vehiclesService)
+        public void Init(ProfileService profileService, VehiclesService vehiclesService)
         {
             audioBackground.Play();
-            
+
+            _profileService = profileService;
             _vehiclesService = vehiclesService;
             _maxVehicles = _vehiclesService.VehiclesCount;
-     
+            
+            SetObservers();
             SetVehicle();
         }
 
@@ -83,6 +90,11 @@ namespace Hovercabs.Controllers
             showcaseController.SetVehicle(_vehiclesService.GetVehicleByIndex(_currentVehicleIndex));
         }
 
+        private void SetObservers()
+        {
+            xenitsObserver.Init(_profileService);
+        }
+
         private void OnDestroy()
         {
             btnLeftArrow.onClick.RemoveAllListeners();
@@ -91,6 +103,16 @@ namespace Hovercabs.Controllers
             btnPlayMultiplayer.onClick.RemoveAllListeners();
             audioArrows.Stop();
             audioBackground.Stop();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                _profileService.Profile.Level += 1;
+                _profileService.Profile.Xenits += 400;
+                _profileService.SaveProfile();
+            }
         }
     }
 }

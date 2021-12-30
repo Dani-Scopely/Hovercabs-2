@@ -12,10 +12,12 @@ namespace Hovercabs.FSM.States
         private AsyncOperation _operation;
         private MainMenuController _mainMenuController;
         private readonly VehiclesService _vehiclesService;
+        private readonly ProfileService _profileService;
 
-        public MainMenuState(GameManager gameManager, VehiclesService vehiclesService) : base(gameManager)
+        public MainMenuState(GameManager gameManager, ProfileService profileService, VehiclesService vehiclesService) : base(gameManager)
         {
             _vehiclesService = vehiclesService;
+            _profileService = profileService;
         }
 
         public override void Start()
@@ -35,7 +37,7 @@ namespace Hovercabs.FSM.States
         {
             _operation.completed -= OnMainMenuSceneLoaded;
             _mainMenuController = Object.FindObjectOfType<MainMenuController>();
-            _mainMenuController.Init(_vehiclesService);
+            _mainMenuController.Init(_profileService, _vehiclesService);
         }
     }
 }

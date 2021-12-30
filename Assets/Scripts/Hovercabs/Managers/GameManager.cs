@@ -27,7 +27,7 @@ namespace Hovercabs.Managers
 
         private void OnAuthenticated(bool isAuthenticated)
         {
-            SetState(new MainMenuState(this, _vehiclesService));
+            SetState(new MainMenuState(this, _profileService, _vehiclesService));
         }
 
         private void OnDestroy()

@@ -1,4 +1,6 @@
 {
   "Username":"username",
-  "Password":"password"
+  "Password":"password",
+  "Xenits":1500,
+  "Level":3
 }

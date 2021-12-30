@@ -7,5 +7,7 @@ namespace Hovercabs.Models.DTO
     {
         public string Username;
         public string Password;
+        public int Xenits;
+        public int Level;
     }
 }
