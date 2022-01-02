@@ -23,11 +23,13 @@ namespace Hovercabs.Controllers.Popups.Settings
             _audioService = new AudioService();
             
             btnBack.onClick.AddListener(OnBackClick);
-            soundSlider.onValueChanged.AddListener(OnSoundSliderChanged);
-            musicSlider.onValueChanged.AddListener(OnMusicSliderChanged);
+            
 
             soundSlider.value = _audioService.Get(AudioMode.Sound);
             musicSlider.value = _audioService.Get(AudioMode.Music);
+            
+            soundSlider.onValueChanged.AddListener(OnSoundSliderChanged);
+            musicSlider.onValueChanged.AddListener(OnMusicSliderChanged);
         }
         
         public override void Show(PopupType popupType, Action onBack)

@@ -10,18 +10,22 @@ namespace Hovercabs.Controllers
     public class AudioController : MonoBehaviour, IObserver
     {
         [SerializeField] private AudioMode audioMode;
-        [SerializeField] private AudioSource audioSource;
+        [SerializeField] public AudioSource audioSource;
         private AudioService _audioService;
         
         private void Awake()
         {
             _audioService = new AudioService();
+        }
+
+        private void Start()
+        {
             var p = _audioService.Get(audioMode);
             audioSource.volume = p;
             
             EventBus.GetBus().Register(this, typeof(OnAudioChanged));
         }
-
+        
         private void OnDestroy()
         {
             EventBus.GetBus().Unregister(this);
@@ -31,6 +35,7 @@ namespace Hovercabs.Controllers
         {
             if (pEvent is OnAudioChanged)
             {
+                if (audioSource == null) return;
                 audioSource.volume = _audioService.Get(audioMode);
             }
         }
