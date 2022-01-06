@@ -1,7 +1,52 @@
 fileFormatVersion: 2
 guid: e2ebca5fd0eeec54b86d4aeb559e29d4
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7972851766706929783
+    second: SettingsAtlas_0
+  - first:
+      213: -6432952714082278121
+    second: ic_music
+  - first:
+      213: -452319703216480400
+    second: SettingsAtlas_2
+  - first:
+      213: 7000066054369420592
+    second: SettingsAtlas_3
+  - first:
+      213: 9208295058243119510
+    second: SettingsAtlas_4
+  - first:
+      213: -5611501833065652602
+    second: ic_sound
+  - first:
+      213: -6747456108871896877
+    second: SettingsAtlas_6
+  - first:
+      213: 3683898535459554778
+    second: SettingsAtlas_7
+  - first:
+      213: -7819887686475820604
+    second: SettingsAtlas_8
+  - first:
+      213: 4236306650002073408
+    second: img_slider
+  - first:
+      213: 9024084600945198453
+    second: img_logo_settings
+  - first:
+      213: -502829890175012308
+    second: SettingsAtlas_11
+  - first:
+      213: 5258891756611628186
+    second: SettingsAtlas_12
+  - first:
+      213: -1929901883437384646
+    second: SettingsAtlas_13
+  - first:
+      213: 1624238065435747149
+    second: SettingsAtlas_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,9 +86,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -89,7 +134,322 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SettingsAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 61
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98f76966f8dba5190800000000000000
+      internalID: -7972851766706929783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ic_music
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 381
+        width: 61
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 715ad3cf69f89b6a0800000000000000
+      internalID: -6432952714082278121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SettingsAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 349
+        width: 121
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07f1fdc50a909b9f0800000000000000
+      internalID: -452319703216480400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SettingsAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 318
+        width: 61
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 035a5fe0dfa352160800000000000000
+      internalID: 7000066054369420592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SettingsAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 297
+        width: 121
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 699e09d519f6acf70800000000000000
+      internalID: 9208295058243119510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ic_sound
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 255
+        width: 61
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e1ba750d0ff12b0800000000000000
+      internalID: -5611501833065652602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SettingsAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 244
+        width: 121
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d0b6252b683c52a0800000000000000
+      internalID: -6747456108871896877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SettingsAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 192
+        width: 61
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad506aa2336df1330800000000000000
+      internalID: 3683898535459554778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SettingsAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 121
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c15828a49d2a7390800000000000000
+      internalID: -7819887686475820604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_slider
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 124
+        width: 394
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 047aff804726aca30800000000000000
+      internalID: 4236306650002073408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_logo_settings
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5754966022dfb3d70800000000000000
+      internalID: 9024084600945198453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SettingsAtlas_11
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 51
+        width: 158
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c227ba501e69509f0800000000000000
+      internalID: -502829890175012308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SettingsAtlas_12
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 51
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9ce01990365bf840800000000000000
+      internalID: 5258891756611628186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SettingsAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 0
+        width: 61
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3c7b5a467c9735e0800000000000000
+      internalID: -1929901883437384646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SettingsAtlas_14
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 0
+        width: 240
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4327f83ae37a8610800000000000000
+      internalID: 1624238065435747149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
