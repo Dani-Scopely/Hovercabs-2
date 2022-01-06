@@ -1,49 +1,40 @@
 fileFormatVersion: 2
-guid: 7b698fec211a26343acaf5e08c85cef6
+guid: 17083d538dcae994f88f238714c812d0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -83287079843388068
-    second: unlock_level
+      213: -8250823426598372997
+    second: btn_pause
   - first:
-      213: 1095263125337022685
-    second: btn_arrow
+      213: -8908609693307852883
+    second: SinglePlayerAtlas_1
   - first:
-      213: -9172423446374616675
+      213: -7673209951457310108
     second: ic_xenits
   - first:
-      213: 5130346701068045709
-    second: btn_achievements
+      213: 1135986769119723555
+    second: ic_fuel
   - first:
-      213: -2591833128782931853
-    second: main_menu_atlas_4
+      213: -309245025579569029
+    second: SinglePlayerAtlas_4
   - first:
-      213: -8185233143549269377
-    second: main_menu_atlas_5
+      213: -3866908718238782345
+    second: SinglePlayerAtlas_5
   - first:
-      213: 7076250334609955461
-    second: main_menu_atlas_6
+      213: 8613247504509354147
+    second: SinglePlayerAtlas_6
   - first:
-      213: 8989323802952351323
-    second: main_menu_atlas_7
+      213: 3995295416023347344
+    second: img_xenits
   - first:
-      213: 5153173716242396411
-    second: ic_xenits_num
+      213: 3681365741379455351
+    second: SinglePlayerAtlas_8
   - first:
-      213: 6406440967355376516
-    second: main_menu_atlas_9
+      213: -6103681180012697788
+    second: img_fuel_background
   - first:
-      213: -2006623416849401315
-    second: btn_leaderboards
-  - first:
-      213: -279754865600441309
-    second: main_menu_atlas_11
-  - first:
-      213: -7817061992017180437
-    second: btn_base_button
-  - first:
-      213: -5038059595086529632
-    second: btn_settings
+      213: -7073987281116857756
+    second: img_fuel_content
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -133,13 +124,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: unlock_level
+      name: btn_pause
       rect:
         serializedVersion: 2
         x: 0
-        y: 325
-        width: 156
-        height: 150
+        y: 360
+        width: 94
+        height: 94
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c552e8797da18def0800000000000000
-      internalID: -83287079843388068
+      spriteID: b79f129eecf2f7d80800000000000000
+      internalID: -8250823426598372997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: btn_arrow
+      name: SinglePlayerAtlas_1
       rect:
         serializedVersion: 2
-        x: 176
-        y: 417
-        width: 58
-        height: 87
+        x: 95
+        y: 427
+        width: 66
+        height: 66
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,8 +159,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd02c417208233f00800000000000000
-      internalID: 1095263125337022685
+      spriteID: da7a8cb0fa24e5480800000000000000
+      internalID: -8908609693307852883
       vertices: []
       indices: 
       edges: []
@@ -178,8 +169,8 @@ TextureImporter:
       name: ic_xenits
       rect:
         serializedVersion: 2
-        x: 235
-        y: 417
+        x: 193
+        y: 389
         width: 64
         height: 64
       alignment: 0
@@ -189,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d91706d197105b080800000000000000
-      internalID: -9172423446374616675
+      spriteID: 46a056c1438438590800000000000000
+      internalID: -7673209951457310108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: btn_achievements
+      name: ic_fuel
       rect:
         serializedVersion: 2
-        x: 176
-        y: 345
-        width: 72
-        height: 72
+        x: 95
+        y: 360
+        width: 66
+        height: 66
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,20 +201,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8d02c39427a23740800000000000000
-      internalID: 5130346701068045709
+      spriteID: 320cce2a2f5d3cf00800000000000000
+      internalID: 1135986769119723555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: main_menu_atlas_4
+      name: SinglePlayerAtlas_4
       rect:
         serializedVersion: 2
-        x: 249
-        y: 344
-        width: 67
-        height: 64
+        x: 193
+        y: 236
+        width: 134
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,41 +222,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 378ddc16085f70cd0800000000000000
-      internalID: -2591833128782931853
+      spriteID: b70f5c5a94755bbf0800000000000000
+      internalID: -309245025579569029
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: main_menu_atlas_5
-      rect:
-        serializedVersion: 2
-        x: 342
-        y: 299
-        width: 51
-        height: 58
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f7aedfab2d5386e80800000000000000
-      internalID: -8185233143549269377
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: main_menu_atlas_6
+      name: SinglePlayerAtlas_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 137
-        width: 175
-        height: 187
+        y: 236
+        width: 192
+        height: 123
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,20 +243,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58a5a201034e33260800000000000000
-      internalID: 7076250334609955461
+      spriteID: 77c248e220bf55ac0800000000000000
+      internalID: -3866908718238782345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: main_menu_atlas_7
+      name: SinglePlayerAtlas_6
       rect:
         serializedVersion: 2
-        x: 176
-        y: 299
-        width: 165
-        height: 44
+        x: 2
+        y: 120
+        width: 288
+        height: 114
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,18 +264,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5e30fd0f5e70cc70800000000000000
-      internalID: 8989323802952351323
+      spriteID: 3a0cccc68f6688770800000000000000
+      internalID: 8613247504509354147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ic_xenits_num
+      name: img_xenits
       rect:
         serializedVersion: 2
-        x: 176
-        y: 245
+        x: 293
+        y: 118
         width: 189
         height: 53
       alignment: 0
@@ -315,20 +285,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf4f1863130c38740800000000000000
-      internalID: 5153173716242396411
+      spriteID: 09071dc4304227730800000000000000
+      internalID: 3995295416023347344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: main_menu_atlas_9
+      name: SinglePlayerAtlas_8
       rect:
         serializedVersion: 2
-        x: 176
-        y: 137
-        width: 107
-        height: 107
+        x: 2
+        y: 2
+        width: 288
+        height: 114
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,20 +306,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4832ab5fd1048e850800000000000000
-      internalID: 6406440967355376516
+      spriteID: 779073713a6d61330800000000000000
+      internalID: 3681365741379455351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: btn_leaderboards
+      name: img_fuel_background
       rect:
         serializedVersion: 2
-        x: 284
-        y: 137
-        width: 107
-        height: 107
+        x: 293
+        y: 54
+        width: 198
+        height: 53
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -357,20 +327,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1af5b842aa0724e0800000000000000
-      internalID: -2006623416849401315
+      spriteID: 4472b133e4e5b4ba0800000000000000
+      internalID: -6103681180012697788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: main_menu_atlas_11
+      name: img_fuel_content
       rect:
         serializedVersion: 2
-        x: 392
-        y: 137
-        width: 100
-        height: 100
+        x: 293
+        y: 9
+        width: 189
+        height: 37
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,50 +348,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 324d2b39e6c1e1cf0800000000000000
-      internalID: -279754865600441309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: btn_base_button
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 354
-        height: 136
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be8cb9ae887348390800000000000000
-      internalID: -7817061992017180437
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: btn_settings
-      rect:
-        serializedVersion: 2
-        x: 355
-        y: 0
-        width: 107
-        height: 107
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ab7e95bd77351ab0800000000000000
-      internalID: -5038059595086529632
+      spriteID: 46af5632c0624dd90800000000000000
+      internalID: -7073987281116857756
       vertices: []
       indices: 
       edges: []
@@ -429,7 +357,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5c07a9c4e008cd34fbbc0433d541a482
+    spriteID: 2ff225f1d4deb8542bed896916aa3283
     internalID: 0
     vertices: []
     indices: 

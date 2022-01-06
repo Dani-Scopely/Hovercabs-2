@@ -1683,7 +1683,7 @@
     },
     "m_Name": "Rotation Speed",
     "m_DefaultReferenceName": "Vector1_61223e14ea7d4be9a89e4ce5e751f482",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "RotationSpeed",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
@@ -2290,9 +2290,9 @@
     "m_Guid": {
         "m_GuidSerialized": "f5ba5fb6-4a0d-4ae1-a392-f96ee47d0f5b"
     },
-    "m_Name": "Rotation Axis",
+    "m_Name": "RotationAxis",
     "m_DefaultReferenceName": "Vector3_992d0dde2bd64b1b84cb9bb82e916eb3",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "RotationAxis",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
