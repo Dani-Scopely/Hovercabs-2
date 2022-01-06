@@ -21,8 +21,10 @@ namespace Hovercabs.Controllers
             
             _vehicleShowcaseController = _currentVehicle.GetComponent<VehicleShowcaseController>();
             _vehicleShowcaseController.rotationSpeed = 50f;
+            
+            _vehicleShowcaseController.SetVehicleInfo(vehicle);
 
-            vehicleEmblemController.SetEmblem(vehicle.Emblem);
+            vehicleEmblemController.SetEmblem(vehicle);
             
         }
     }

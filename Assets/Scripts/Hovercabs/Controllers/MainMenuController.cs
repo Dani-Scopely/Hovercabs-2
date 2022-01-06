@@ -92,7 +92,9 @@ namespace Hovercabs.Controllers
 
         private void SetVehicle()
         {
-            showcaseController.SetVehicle(_vehiclesService.GetVehicleByIndex(_currentVehicleIndex));
+            var vehicle = _vehiclesService.GetVehicleByIndex(_currentVehicleIndex);
+            vehicle.IsAvailable = _profileService.Profile.Level >= vehicle.Level;
+            showcaseController.SetVehicle(vehicle);
         }
 
         private void SetObservers()

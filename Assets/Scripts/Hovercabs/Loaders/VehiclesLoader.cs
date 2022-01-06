@@ -35,16 +35,19 @@ namespace Hovercabs.Loaders
 
             for (var i = 0; i < _vehiclesDto.vehicles.Count; i++)
             {
-                var path = $"Vehicles/{_vehiclesDto.vehicles[i]}/{_vehiclesDto.vehicles[i]}_high";
+                var vehicleData = _vehiclesDto.vehicles[i].Split(':');
+                var vehicleName = vehicleData[0];
+                var vehicleLevel = vehicleData[1];
+                var path = $"Vehicles/{vehicleName}/{vehicleName}_high";
                 var obj = Resources.Load<GameObject>(path);
                 
                 if (i % 1 == 0) { yield return null; }
                 
                 IsDone = i == _vehiclesDto.vehicles.Count - 1;
 
-                var sprite = GetVehicleEmblem(sprites, _vehiclesDto.vehicles[i]);
+                var sprite = GetVehicleEmblem(sprites, vehicleName);
                 
-                _onVehicleLoaded?.Invoke(new Vehicle(_vehiclesDto.vehicles[i], obj, sprite));
+                _onVehicleLoaded?.Invoke(new Vehicle(vehicleName, Int32.Parse(vehicleLevel), obj, sprite));
             }
             
             yield return null;

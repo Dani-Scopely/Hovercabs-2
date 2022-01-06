@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37924924, g: 0.38933206, b: 0.37144172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44845092, g: 0.49848735, b: 0.5756327, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 76670aef0cf319640b2490ebe02fbb79, type: 3}
+  m_Sprite: {fileID: 1095263125337022685, guid: 7b698fec211a26343acaf5e08c85cef6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -608,7 +608,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3ca3ca1adfbb404c8e2d5373d77fbe4, type: 3}
+  m_Sprite: {fileID: -5038059595086529632, guid: 7b698fec211a26343acaf5e08c85cef6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1795,7 +1795,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fedfc28be9e64b7419aadccb5ee14991, type: 3}
+  m_Sprite: {fileID: -2006623416849401315, guid: 7b698fec211a26343acaf5e08c85cef6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1872,7 +1872,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bde0b5fb4a97cd84d923926216392f4d, type: 3}
+  m_Sprite: {fileID: 5153173716242396411, guid: 7b698fec211a26343acaf5e08c85cef6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1947,7 +1947,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1ffec88bc74db8e4dbf52aa0f9125c3d, type: 3}
+  m_Sprite: {fileID: -9172423446374616675, guid: 7b698fec211a26343acaf5e08c85cef6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2873,7 +2873,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 652b5b73220934d4eafe9faddb096938, type: 3}
+  m_Sprite: {fileID: -7817061992017180437, guid: 7b698fec211a26343acaf5e08c85cef6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3126,7 +3126,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 76670aef0cf319640b2490ebe02fbb79, type: 3}
+  m_Sprite: {fileID: 1095263125337022685, guid: 7b698fec211a26343acaf5e08c85cef6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3243,13 +3243,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900267331}
-  m_LocalRotation: {x: 0.004555301, y: 0, z: 0, w: 0.9999896}
+  m_LocalRotation: {x: 0.3774933, y: -0, z: -0, w: 0.9260124}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1693569485}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0.522, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 44.357, y: 0, z: 0}
 --- !u!108 &1900267333
 Light:
   m_ObjectHideFlags: 0
@@ -3415,7 +3415,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 652b5b73220934d4eafe9faddb096938, type: 3}
+  m_Sprite: {fileID: -7817061992017180437, guid: 7b698fec211a26343acaf5e08c85cef6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3700,15 +3700,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -1241045791277537721, guid: af487362b3315c147b354cb9c1e28370, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.1, y: 1.63}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2077829369

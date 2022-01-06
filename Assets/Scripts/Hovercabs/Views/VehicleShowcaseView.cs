@@ -1,4 +1,5 @@
 ﻿using System;
+using Hovercabs.Models;
 using UnityEngine;
 
 namespace Hovercabs.Views
@@ -13,9 +14,10 @@ namespace Hovercabs.Views
             _showcaseMaterial = GetComponent<Renderer>().sharedMaterial;
         }
 
-        public void Render()
+        public void Render(Vehicle vehicle)
         {
-            _showcaseMaterial.SetFloat(IsAvailableProperty,1f);         
+            Debug.Log("Is available: "+vehicle.IsAvailable);
+            _showcaseMaterial.SetFloat(IsAvailableProperty,vehicle.IsAvailable ? 1f : 0f);         
         }
     }
 }

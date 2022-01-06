@@ -17,11 +17,11 @@ namespace Hovercabs.Controllers
             _view = GetComponent<VehicleShowcaseView>();
         }
 
-        private void Start()
+        public void SetVehicleInfo(Vehicle vehicle)
         {
-            _view.Render();
+            _view.Render(vehicle);
         }
-
+        
         private void Update()
         {
             transform.Rotate(new Vector3(0,rotationSpeed*Time.deltaTime,0));

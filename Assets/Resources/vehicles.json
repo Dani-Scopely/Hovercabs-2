@@ -1,20 +1,20 @@
 {
   "vehicles": [
-    "jp_46",
-    "jp_cadillac",
-    "jp_carga0",
-    "jp_carga1",
-    "jp_carga2",
-    "jp_celica",
-    "jp_hippie",
-    "jp_huevo",
-    "jp_javi",
-    "jp_low",
-    "jp_mafia",
-    "jp_mauricio",
-    "jp_mid",
-    "jp_paquita",
-    "jp_top",
-    "jp_xwind"
+    "jp_46:1",
+    "jp_cadillac:1",
+    "jp_carga0:2",
+    "jp_carga1:3",
+    "jp_carga2:4",
+    "jp_celica:5",
+    "jp_hippie:6",
+    "jp_huevo:7",
+    "jp_javi:8",
+    "jp_low:9",
+    "jp_mafia:10",
+    "jp_mauricio:11",
+    "jp_mid:12",
+    "jp_paquita:13",
+    "jp_top:14",
+    "jp_xwind:15"
   ]
 }

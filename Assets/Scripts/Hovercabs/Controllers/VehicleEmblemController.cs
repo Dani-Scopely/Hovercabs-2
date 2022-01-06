@@ -1,3 +1,4 @@
+using Hovercabs.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,11 +9,11 @@ namespace Hovercabs.Controllers
         [SerializeField] private SpriteRenderer emblem;
         [SerializeField] private Camera _camera;
         
-        public void SetEmblem(Sprite emblemSprite)
+        public void SetEmblem(Vehicle vehicle)
         {
-            emblem.sprite = emblemSprite;
-            gameObject.SetActive(true);
-            
+            emblem.sprite = vehicle.Emblem;
+            emblem.color = vehicle.IsAvailable ? Color.white : Color.black;
+
             transform.LookAt(_camera.transform.position, Vector3.up);
         }
     }

@@ -8,10 +8,13 @@ namespace Hovercabs.Models
         public string Id { get; }
         public GameObject Model { get; }
         public Sprite Emblem { get; }
+        public int Level { get; set; }
+        public bool IsAvailable { get; set; }
 
-        public Vehicle(string id, GameObject model, Sprite emblem)
+        public Vehicle(string id, int level, GameObject model, Sprite emblem)
         {
             Id = id;
+            Level = level;
             Model = model;
             Emblem = emblem;
         }
