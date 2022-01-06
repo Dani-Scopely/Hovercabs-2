@@ -20,7 +20,6 @@ namespace Hovercabs.Controllers
             _currentVehicle.transform.localScale = Vector3.one;
             
             _vehicleShowcaseController = _currentVehicle.GetComponent<VehicleShowcaseController>();
-            _vehicleShowcaseController.rotationSpeed = 50f;
             
             _vehicleShowcaseController.SetVehicleInfo(vehicle);
 
