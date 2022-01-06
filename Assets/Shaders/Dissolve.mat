@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: jp_Mid
-  m_Shader: {fileID: -6465566751694194690, guid: 332d3dccbc8e0bd46b72ab1e7e7a4f7c, type: 3}
+  m_Name: Dissolve
+  m_Shader: {fileID: -6465566751694194690, guid: a3694cd52fb4c1044a1d91e38bd6aa70, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,12 +19,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_a9d3c20a1e92410489461aba2a17beff:
-        m_Texture: {fileID: 2800000, guid: 26d720ef1a19a6141aa5c310e9e93347, type: 3}
+    - Texture2D_0a0585a8ed0f4b0c87c18664fa1cbc5a:
+        m_Texture: {fileID: 2800000, guid: f9d4b075534a5ce40a86787aca705996, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_bed0585503a541dab944bfd3257c95f3:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 26d720ef1a19a6141aa5c310e9e93347, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -48,7 +52,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 26d720ef1a19a6141aa5c310e9e93347, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -67,6 +71,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_a8c92f5c7fb440e2aae106814dddbefd_Out_0:
+        m_Texture: {fileID: 2800000, guid: f9d4b075534a5ce40a86787aca705996, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -80,7 +88,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Boolean_d8b4e3ba698f49f39b29092c5143fde2: 0
+    - Boolean_e3b4e90b10494716b913666367d39568: 0
+    - Vector1_2f223595ee244b82a34f94004ecc8765: 20
+    - Vector1_81e4b201c8ce4b1eabdc8a73108ebbe0: 5
+    - Vector1_a15f4d30565744b38a155ed184b69f8a: 3.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -113,7 +124,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &7379953230637104484
+--- !u!114 &297748273392479575
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
