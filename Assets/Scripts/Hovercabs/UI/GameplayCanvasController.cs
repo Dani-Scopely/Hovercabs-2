@@ -11,6 +11,7 @@ namespace Hovercabs.UI
         private GameplayCanvasView _view;
 
         [SerializeField] private PauseCanvasController pauseCanvasController;
+        [SerializeField] private DistanceCanvasController distanceCanvasController;
         
         private void Awake()
         {
@@ -21,13 +22,16 @@ namespace Hovercabs.UI
         {
             _view.Init(this);
             _view.OnPauseClick += OnPauseClick;
-            
         }
         
         public void Init(Action onQuitRace)
         {
             pauseCanvasController.Init(onQuitRace);
-            
+        }
+
+        public void SetDistance(float distance)
+        {
+            distanceCanvasController.SetDistance(distance);    
         }
         
         private void OnPauseClick()

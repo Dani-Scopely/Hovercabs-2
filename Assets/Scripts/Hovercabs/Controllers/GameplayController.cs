@@ -27,7 +27,18 @@ namespace Hovercabs.Controllers
 
         private void InitLevel(TrackManager trackManager, VehiclesService vehiclesService)
         {
+            levelController.OnDistanceChanged += OnDistanceChanged;
             levelController.Init(trackManager, vehiclesService, vehicleGameplayConfig, vehiclesConfig);
+        }
+
+        private void OnDestroy()
+        {
+            levelController.OnDistanceChanged -= OnDistanceChanged;
+        }
+
+        private void OnDistanceChanged(float distance)
+        {
+            gameplayCanvasController.SetDistance(distance);
         }
     }
 }

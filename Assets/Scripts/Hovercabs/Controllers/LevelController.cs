@@ -1,3 +1,4 @@
+using System;
 using Hovercabs.Configurations.Gameplay.Vehicles;
 using Hovercabs.Configurations.Vehicles;
 using Hovercabs.Managers;
@@ -18,6 +19,8 @@ namespace Hovercabs.Controllers
 
         private VehicleGameplayConfig _config;
         private VehiclesConfig _vehiclesConfig;
+
+        public Action<float> OnDistanceChanged { get; set; }
         
         public void Init(TrackManager trackManager, VehiclesService vehiclesService, VehicleGameplayConfig config, VehiclesConfig vehiclesConfig)
         {
@@ -39,9 +42,15 @@ namespace Hovercabs.Controllers
                 transform, true);
 
             _vehicleController = v.GetComponent<VehicleController>();
+            _vehicleController.OnDistanceChanged += OnDistanceChanged;
             _vehicleController.Init(_config, _vehiclesConfig.GetVehicleConfig(_currentVehicle.Id));
         }
-        
+
+        private void OnDestroy()
+        {
+            _vehicleController.OnDistanceChanged -= OnDistanceChanged;
+        }
+
         private void SetupCamera()
         {
             cameraController.SetTarget(_vehicleController.transform);

@@ -1,8 +1,10 @@
 ﻿using System;
 using Hovercabs.Configurations.Gameplay.Vehicles;
 using Hovercabs.Configurations.Vehicles;
+using Hovercabs.Models;
 using Hovercabs.Views;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Hovercabs.Controllers
 {
@@ -13,10 +15,14 @@ namespace Hovercabs.Controllers
     {
         [SerializeField] private float speed = 1.0f;
         private VehicleConfig _vehicleConfig;
+        private VehicleGameplayConfig _vehicleGameplayConfig;
         private Rigidbody _rigidbody;
         private VehicleView _view;
 
         [SerializeField] private float currentSpeed = 0f;
+        [SerializeField] private float distance = 0f;
+        
+        public Action<float> OnDistanceChanged { get; set; }
         
         private void Awake()
         {
@@ -29,23 +35,29 @@ namespace Hovercabs.Controllers
             _view.Render();
         }
 
-        public void Init(VehicleGameplayConfig config, VehicleConfig vehicleConfig)
+        public void Init(VehicleGameplayConfig vehicleGameplayConfig, VehicleConfig vehicleConfig)
         {
+            _vehicleGameplayConfig = vehicleGameplayConfig;
             _vehicleConfig = vehicleConfig;
-            SetupModel(config);
+            
+            SetupModel();
         }
 
-        private void SetupModel(VehicleGameplayConfig config)
+        private void SetupModel()
         {
             var t = transform;
             
-            t.position = config.initialPosition;
-            t.localScale = config.initialScale;
+            t.position = _vehicleGameplayConfig.initialPosition;
+            t.localScale = _vehicleGameplayConfig.initialScale;
         }
         
         private void FixedUpdate()
         {
             currentSpeed = _rigidbody.velocity.z;
+            
+            distance = Math.Abs(Vector3.Distance(_vehicleGameplayConfig.initialPosition, transform.position));
+            
+            NotifyUI();
             
             if (Input.GetKey(KeyCode.UpArrow))
             {
@@ -68,6 +80,11 @@ namespace Hovercabs.Controllers
             {
                 transform.position += new Vector3(-1, 0, 0);
             }
+        }
+
+        private void NotifyUI()
+        {
+            OnDistanceChanged?.Invoke(distance);
         }
     }
 }
