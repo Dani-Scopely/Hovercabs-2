@@ -1,4 +1,5 @@
 using System;
+using Hovercabs.Configurations.Showcase;
 using Hovercabs.Models;
 using Hovercabs.Views;
 using UnityEngine;
@@ -16,6 +17,11 @@ namespace Hovercabs.Controllers
             _view = GetComponent<VehicleShowcaseView>();
         }
 
+        public void Init(VehicleShowcaseConfig config)
+        {
+            _view.Init(config);    
+        }
+        
         public void SetVehicleInfo(Vehicle vehicle)
         {
             _view.Render(vehicle);

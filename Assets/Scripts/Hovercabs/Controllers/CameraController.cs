@@ -4,12 +4,16 @@ namespace Hovercabs.Controllers
 {
     public class CameraController : MonoBehaviour
     {
-        [SerializeField] private Transform target;
+        private Transform _target;
 
-        // Update is called once per frame
+        public void SetTarget(Transform target)
+        {
+            _target = target;
+        }
+        
         void Update()
         {
-            var tpos = target.transform.position;
+            var tpos = _target.transform.position;
             var fpos = transform.position;
             fpos.z = tpos.z;
             fpos.y = tpos.y;

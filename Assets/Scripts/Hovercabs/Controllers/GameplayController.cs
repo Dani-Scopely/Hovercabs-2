@@ -13,17 +13,18 @@ namespace Hovercabs.Controllers
     public class GameplayController : MonoBehaviour
     {
         [SerializeField] private GameplayCanvasController gameplayCanvasController;
-        private VehiclesService _vehiclesService;
+        [SerializeField] private LevelController levelController;
         
         public void Init(TrackManager trackManager, VehiclesService vehiclesService, Action onQuit)
         {
-            _vehiclesService = vehiclesService;
-            
             gameplayCanvasController.Init(onQuit);
             
-            trackManager.Init();
-            
-            Debug.Log($"We want to play with: {_vehiclesService.GetCurrentVehicle().Id}");
+            InitLevel(trackManager, vehiclesService);
+        }
+
+        private void InitLevel(TrackManager trackManager, VehiclesService vehiclesService)
+        {
+            levelController.Init(trackManager, vehiclesService);
         }
     }
 }

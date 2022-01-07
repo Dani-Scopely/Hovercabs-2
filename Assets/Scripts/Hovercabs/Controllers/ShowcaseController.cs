@@ -1,4 +1,5 @@
-﻿using Hovercabs.Models;
+﻿using Hovercabs.Configurations.Showcase;
+using Hovercabs.Models;
 using UnityEngine;
 
 namespace Hovercabs.Controllers
@@ -7,7 +8,8 @@ namespace Hovercabs.Controllers
     {
         private GameObject _currentVehicle;
         private VehicleShowcaseController _vehicleShowcaseController;
-
+        
+        [SerializeField] private VehicleShowcaseConfig vehicleShowcaseConfig;
         [SerializeField] private VehicleEmblemController vehicleEmblemController;
 
         public void SetVehicle(Vehicle vehicle)
@@ -20,6 +22,8 @@ namespace Hovercabs.Controllers
             _currentVehicle.transform.localScale = Vector3.one;
             
             _vehicleShowcaseController = _currentVehicle.GetComponent<VehicleShowcaseController>();
+            
+            _vehicleShowcaseController.Init(vehicleShowcaseConfig);
             
             _vehicleShowcaseController.SetVehicleInfo(vehicle);
 

@@ -2695,6 +2695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bd6fa4c185451a935035204d4e626e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vehicleShowcaseConfig: {fileID: 11400000, guid: 39ad9bbf43afeb244b8d8b83a12c075c, type: 2}
   vehicleEmblemController: {fileID: 2044714911}
 --- !u!1 &1470429413
 GameObject:
