@@ -1,4 +1,5 @@
 using Hovercabs.Configurations.Gameplay.Vehicles;
+using Hovercabs.Configurations.Vehicles;
 using Hovercabs.Managers;
 using Hovercabs.Models;
 using Hovercabs.Services;
@@ -13,36 +14,37 @@ namespace Hovercabs.Controllers
         private TrackManager _trackManager;
         private VehiclesService _vehiclesService;
         private Vehicle _currentVehicle;
-        private GameObject _vehicle;
+        private VehicleController _vehicleController;
 
         private VehicleGameplayConfig _config;
+        private VehiclesConfig _vehiclesConfig;
         
-        public void Init(TrackManager trackManager, VehiclesService vehiclesService, VehicleGameplayConfig config)
+        public void Init(TrackManager trackManager, VehiclesService vehiclesService, VehicleGameplayConfig config, VehiclesConfig vehiclesConfig)
         {
             _trackManager = trackManager;
             _vehiclesService = vehiclesService;
             _config = config;
+            _vehiclesConfig = vehiclesConfig;
             
             _trackManager.Init();
             _currentVehicle = _vehiclesService.GetCurrentVehicle();
          
             SetupVehicle();
             SetupCamera();
-            
-            Debug.Log($"We want to play with: {_currentVehicle.Id}");
         }
 
         private void SetupVehicle()
         {
-            _vehicle = Instantiate(Resources.Load<GameObject>($"Vehicles/{_currentVehicle.Id}/{_currentVehicle.Id}_low"),
+            var v = Instantiate(Resources.Load<GameObject>($"Vehicles/{_currentVehicle.Id}/{_currentVehicle.Id}_low"),
                 transform, true);
-            _vehicle.transform.position = _config.initialPosition;
-            _vehicle.transform.localScale = _config.initialScale;
+
+            _vehicleController = v.GetComponent<VehicleController>();
+            _vehicleController.Init(_config, _vehiclesConfig.GetVehicleConfig(_currentVehicle.Id));
         }
         
         private void SetupCamera()
         {
-            cameraController.SetTarget(_vehicle.transform);
+            cameraController.SetTarget(_vehicleController.transform);
         }
     }
 }

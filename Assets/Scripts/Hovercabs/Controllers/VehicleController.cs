@@ -1,4 +1,6 @@
 ﻿using System;
+using Hovercabs.Configurations.Gameplay.Vehicles;
+using Hovercabs.Configurations.Vehicles;
 using Hovercabs.Views;
 using UnityEngine;
 
@@ -10,8 +12,11 @@ namespace Hovercabs.Controllers
     public class VehicleController : MonoBehaviour
     {
         [SerializeField] private float speed = 1.0f;
+        private VehicleConfig _vehicleConfig;
         private Rigidbody _rigidbody;
         private VehicleView _view;
+
+        [SerializeField] private float currentSpeed = 0f;
         
         private void Awake()
         {
@@ -24,15 +29,38 @@ namespace Hovercabs.Controllers
             _view.Render();
         }
 
-        private void Update()
+        public void Init(VehicleGameplayConfig config, VehicleConfig vehicleConfig)
         {
+            _vehicleConfig = vehicleConfig;
+            SetupModel(config);
+        }
+
+        private void SetupModel(VehicleGameplayConfig config)
+        {
+            var t = transform;
+            
+            t.position = config.initialPosition;
+            t.localScale = config.initialScale;
+        }
+        
+        private void FixedUpdate()
+        {
+            currentSpeed = _rigidbody.velocity.z;
+            
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                _rigidbody.AddForce(new Vector3(0,0,1));
-                //transform.position += new Vector3(0, 0, speed * Time.deltaTime);
+                if (currentSpeed > _vehicleConfig.maxSpeed) return;
+
+                _rigidbody.AddForce(new Vector3(0,0,_vehicleConfig.maxAcceleration));
             }else if (Input.GetKey(KeyCode.DownArrow))
             {
-                _rigidbody.AddForce(new Vector3(0,0,-5));
+                if (currentSpeed <= 0)
+                {
+                    _rigidbody.AddForce(Vector3.zero);
+                    return;
+                }
+                
+                _rigidbody.AddForce(new Vector3(0,0,-_vehicleConfig.breakStrength));
             }else if (Input.GetKeyUp(KeyCode.RightArrow))
             {
                 transform.position += new Vector3(1, 0, 0);
@@ -40,8 +68,6 @@ namespace Hovercabs.Controllers
             {
                 transform.position += new Vector3(-1, 0, 0);
             }
-            
-            
         }
     }
 }

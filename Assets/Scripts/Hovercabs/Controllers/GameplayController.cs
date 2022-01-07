@@ -1,13 +1,10 @@
 ﻿using System;
 using Hovercabs.Configurations.Gameplay.Vehicles;
-using Hovercabs.Events;
-using Hovercabs.FSM;
-using Hovercabs.FSM.States;
+using Hovercabs.Configurations.Vehicles;
 using Hovercabs.Managers;
 using Hovercabs.Services;
 using Hovercabs.UI;
 using UnityEngine;
-using Utils;
 
 namespace Hovercabs.Controllers
 {
@@ -15,8 +12,11 @@ namespace Hovercabs.Controllers
     {
         [SerializeField] private GameplayCanvasController gameplayCanvasController;
         [SerializeField] private LevelController levelController;
+        
         [Header("Configurations")]
         [SerializeField] private VehicleGameplayConfig vehicleGameplayConfig;
+
+        [SerializeField] private VehiclesConfig vehiclesConfig;
         
         public void Init(TrackManager trackManager, VehiclesService vehiclesService, Action onQuit)
         {
@@ -27,7 +27,7 @@ namespace Hovercabs.Controllers
 
         private void InitLevel(TrackManager trackManager, VehiclesService vehiclesService)
         {
-            levelController.Init(trackManager, vehiclesService, vehicleGameplayConfig);
+            levelController.Init(trackManager, vehiclesService, vehicleGameplayConfig, vehiclesConfig);
         }
     }
 }

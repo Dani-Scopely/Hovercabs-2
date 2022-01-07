@@ -459,6 +459,7 @@ MonoBehaviour:
   gameplayCanvasController: {fileID: 1809898671}
   levelController: {fileID: 551764473}
   vehicleGameplayConfig: {fileID: 11400000, guid: 3d1bead8a1de42246be2952e5294fd8a, type: 2}
+  vehiclesConfig: {fileID: 11400000, guid: fc7d7c9e92ac17a449d83804907e8924, type: 2}
 --- !u!1 &469958220
 GameObject:
   m_ObjectHideFlags: 0
