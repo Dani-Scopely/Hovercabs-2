@@ -6,8 +6,10 @@ using Hovercabs.Managers;
 using Hovercabs.Models;
 using Hovercabs.Observers;
 using Hovercabs.Services;
+using Hovercabs.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Utils;
 
@@ -22,8 +24,9 @@ namespace Hovercabs.Controllers
         private int _currentVehicleIndex = 0;
         private int _maxVehicles = 0;
 
-        [SerializeField] private MainMenuPopupsController _mainMenuPopupsController;
+        [SerializeField] private MainMenuPopupsController mainMenuPopupsController;
         [SerializeField] private ShowcaseController showcaseController;
+        [SerializeField] private PlayButtonCanvasController playButtonCanvasController;
         [SerializeField] private Button btnLeftArrow;
         [SerializeField] private Button btnRightArrow;
         [SerializeField] private Button btnPlayMultiplayer;
@@ -87,7 +90,7 @@ namespace Hovercabs.Controllers
 
         private void OnSettings()
         {
-            _mainMenuPopupsController.Show(PopupType.Settings);
+            mainMenuPopupsController.Show(PopupType.Settings);
         }
 
         private void SetVehicle()
@@ -95,6 +98,7 @@ namespace Hovercabs.Controllers
             var vehicle = _vehiclesService.GetVehicleByIndex(_currentVehicleIndex);
             vehicle.IsAvailable = _profileService.Profile.Level >= vehicle.Level;
             showcaseController.SetVehicle(vehicle);
+            playButtonCanvasController.Init(vehicle);
         }
 
         private void SetObservers()

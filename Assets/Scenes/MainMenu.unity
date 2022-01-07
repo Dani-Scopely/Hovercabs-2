@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44845092, g: 0.49848735, b: 0.5756327, a: 1}
+  m_IndirectSpecularColor: {r: 0.45124525, g: 0.50095135, b: 0.57349616, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1012,8 +1012,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PLAY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a09bbb77dbd9b99429a9ac039be9c3e4, type: 2}
-  m_sharedMaterial: {fileID: 3265933490306479707, guid: a09bbb77dbd9b99429a9ac039be9c3e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e6f6b6759de1c1b4b81891f0e7606388, type: 2}
+  m_sharedMaterial: {fileID: -1797262432111810130, guid: e6f6b6759de1c1b4b81891f0e7606388, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1032,7 +1032,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -2555,8 +2555,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 52.38
+  m_fontSizeBase: 52.38
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3014,8 +3014,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69ccfb5bb9e48b4c98211edefa1114b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainMenuPopupsController: {fileID: 2013962530}
+  mainMenuPopupsController: {fileID: 2013962530}
   showcaseController: {fileID: 1402002973}
+  playButtonCanvasController: {fileID: 1930951227}
   btnLeftArrow: {fileID: 7108683}
   btnRightArrow: {fileID: 1804140463}
   btnPlayMultiplayer: {fileID: 1489264576}
@@ -3243,13 +3244,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900267331}
-  m_LocalRotation: {x: 0.3774933, y: -0, z: -0, w: 0.9260124}
+  m_LocalRotation: {x: 0.27563733, y: 0, z: 0, w: 0.96126175}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1693569485}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 44.357, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 32, y: 0, z: 0}
 --- !u!108 &1900267333
 Light:
   m_ObjectHideFlags: 0
@@ -3262,13 +3263,13 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.59
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -3324,6 +3325,8 @@ GameObject:
   - component: {fileID: 1930951225}
   - component: {fileID: 1930951224}
   - component: {fileID: 1930951223}
+  - component: {fileID: 1930951226}
+  - component: {fileID: 1930951227}
   m_Layer: 5
   m_Name: btnPlay
   m_TagString: Untagged
@@ -3433,6 +3436,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930951221}
   m_CullTransparentMesh: 1
+--- !u!114 &1930951226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930951221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd106e0fe24b864e88c694219a3615b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtCaption: {fileID: 426844862}
+--- !u!114 &1930951227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930951221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6bfe89d1e9c03347aef00a7b2537a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1981294469
 GameObject:
   m_ObjectHideFlags: 0
