@@ -55,6 +55,7 @@ namespace Hovercabs.Controllers
             _profileService = profileService;
             _vehiclesService = vehiclesService;
             _maxVehicles = _vehiclesService.VehiclesCount;
+            _currentVehicleIndex = _vehiclesService.GetCurrentVehicleIndex();
             
             SetObservers();
             SetVehicle();

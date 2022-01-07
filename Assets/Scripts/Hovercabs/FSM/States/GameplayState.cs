@@ -2,6 +2,7 @@
 using Hovercabs.Events;
 using Hovercabs.FSM.States.Base;
 using Hovercabs.Managers;
+using Hovercabs.Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils;
@@ -11,12 +12,14 @@ namespace Hovercabs.FSM.States
     public class GameplayState : State
     {
         private readonly TrackManager _trackManager;
+        private readonly VehiclesService _vehiclesService;
         private AsyncOperation _operation;
         private GameplayController _gameplayController;
         
         public GameplayState(GameManager gameManager) : base(gameManager)
         {
             _trackManager = gameManager.TrackManager;
+            _vehiclesService = gameManager.VehiclesService;
         }
         
         public override void Start()
@@ -36,7 +39,7 @@ namespace Hovercabs.FSM.States
         {
             _operation.completed -= OnGameplaySceneLoaded;
             _gameplayController = Object.FindObjectOfType<GameplayController>();
-            _gameplayController.Init(_trackManager, OnQuitRace);
+            _gameplayController.Init(_trackManager, _vehiclesService, OnQuitRace);
         }
 
         private void OnQuitRace()

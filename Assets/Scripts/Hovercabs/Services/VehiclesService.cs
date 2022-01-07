@@ -15,6 +15,7 @@ namespace Hovercabs.Services
         public int VehiclesCount { get; private set; }
 
         private readonly List<Vehicle> _vehicles;
+        private int _currentVehicleIndex = 0;
         
         private readonly VehiclesLoader _vehiclesLoader;
         
@@ -38,9 +39,33 @@ namespace Hovercabs.Services
 
         public Vehicle GetVehicleByIndex(int index)
         {
-            return _vehicles[index];
+            _currentVehicleIndex = index;
+
+            var vehicle = _vehicles[_currentVehicleIndex];
+            
+            SetCurrentVehicle(vehicle);
+            
+            return _vehicles[_currentVehicleIndex];
         }
 
+        private void SetCurrentVehicle(Vehicle vehicle)
+        {
+            PlayerPrefs.SetInt("currentVehicleIndex",_currentVehicleIndex);
+            PlayerPrefs.Save();
+        }
+
+        public Vehicle GetCurrentVehicle()
+        {
+            _currentVehicleIndex = GetCurrentVehicleIndex();
+            
+            return _vehicles[_currentVehicleIndex];
+        }
+
+        public int GetCurrentVehicleIndex()
+        {
+            return PlayerPrefs.GetInt("currentVehicleIndex", 0);
+        }
+        
         private void AddVehicle(Vehicle vehicle)
         {
             EventBus.GetBus().Send(new OnResourceLoaded { ResourceName = vehicle.Id });
