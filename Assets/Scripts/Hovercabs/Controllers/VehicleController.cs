@@ -58,7 +58,10 @@ namespace Hovercabs.Controllers
             distance = Math.Abs(Vector3.Distance(_vehicleGameplayConfig.initialPosition, transform.position));
             
             NotifyUI();
-            
+        }
+
+        private void Update()
+        {
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 if (currentSpeed > _vehicleConfig.maxSpeed) return;
@@ -73,6 +76,7 @@ namespace Hovercabs.Controllers
                 }
                 
                 _rigidbody.AddForce(new Vector3(0,0,-_vehicleConfig.breakStrength));
+
             }else if (Input.GetKeyUp(KeyCode.RightArrow))
             {
                 transform.position += new Vector3(1, 0, 0);
