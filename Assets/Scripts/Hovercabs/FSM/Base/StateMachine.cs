@@ -8,7 +8,7 @@ namespace Hovercabs.FSM
     {
         protected State CurrentState;
 
-        protected void SetState(State state)
+        public void SetState(State state)
         {
             CurrentState?.Stop();
             CurrentState = state;

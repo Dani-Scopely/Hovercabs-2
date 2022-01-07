@@ -1,3 +1,4 @@
+using Hovercabs.Controllers;
 using Hovercabs.Managers;
 
 namespace Hovercabs.FSM.States.Base
@@ -6,6 +7,11 @@ namespace Hovercabs.FSM.States.Base
     {
         protected GameManager GameManager;
         protected string LastSceneId;
+
+        protected State()
+        {
+            
+        }
         
         protected State(GameManager gameManager, string lastSceneId = null)
         {

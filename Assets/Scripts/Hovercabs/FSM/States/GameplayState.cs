@@ -10,12 +10,13 @@ namespace Hovercabs.FSM.States
 {
     public class GameplayState : State
     {
+        private readonly TrackManager _trackManager;
         private AsyncOperation _operation;
         private GameplayController _gameplayController;
         
         public GameplayState(GameManager gameManager) : base(gameManager)
         {
-            
+            _trackManager = gameManager.TrackManager;
         }
         
         public override void Start()
@@ -35,10 +36,10 @@ namespace Hovercabs.FSM.States
         {
             _operation.completed -= OnGameplaySceneLoaded;
             _gameplayController = Object.FindObjectOfType<GameplayController>();
-            _gameplayController.Init(OnBack);
+            _gameplayController.Init(_trackManager, OnQuitRace);
         }
 
-        private void OnBack()
+        private void OnQuitRace()
         {
             EventBus.GetBus().Send(new OnStateChanged
             {

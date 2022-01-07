@@ -11,11 +11,6 @@ namespace Hovercabs.Managers
         private int _currentTrackNum = 0;
         private Queue<GameObject> _currentTracks;
 
-        private void Awake()
-        {
-            Init();
-        }
-
         public void Init()
         {
             DestroyAllTracks();

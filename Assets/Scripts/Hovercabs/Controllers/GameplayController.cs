@@ -1,36 +1,24 @@
 ﻿using System;
+using Hovercabs.Events;
+using Hovercabs.FSM;
+using Hovercabs.FSM.States;
 using Hovercabs.Managers;
+using Hovercabs.UI;
 using UnityEngine;
-using UnityEngine.UI;
+using Utils;
 
 namespace Hovercabs.Controllers
 {
     public class GameplayController : MonoBehaviour
     {
-        [SerializeField] private Button btnBack;
-        [SerializeField] private TrackManager trackManager;
-        
-        private Action _onBack;
-        
-        private void Awake()
-        {
-            btnBack.onClick.AddListener(OnBackClick);
-        }
+        [SerializeField] private GameplayCanvasController gameplayCanvasController;
 
-        public void Init(Action onBack)
+        public void Init(TrackManager trackManager, Action onQuit)
         {
-            _onBack = onBack;
+            gameplayCanvasController.Init(onQuit);
+            
             trackManager.Init();
-        }
-        
-        private void OnDestroy()
-        {
-            btnBack.onClick.RemoveAllListeners();
-        }
-
-        private void OnBackClick()
-        {
-            _onBack?.Invoke();
+            
         }
     }
 }

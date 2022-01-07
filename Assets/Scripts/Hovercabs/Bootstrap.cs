@@ -8,6 +8,7 @@ namespace Hovercabs
     public class Bootstrap : MonoBehaviour
     {
         [SerializeField] private GameManager gameManager;
+        [SerializeField] private TrackManager trackManager;
         
         private ProfileService _profileService;
         private VehiclesService _vehiclesService;
@@ -20,7 +21,7 @@ namespace Hovercabs
 
         private void Start()
         {
-            gameManager.Init(_profileService, _vehiclesService);    
+            gameManager.Init(_profileService, _vehiclesService, trackManager);    
         }
     }
 }

@@ -16,7 +16,6 @@ namespace Hovercabs.Views
 
         public void Render(Vehicle vehicle)
         {
-            Debug.Log("Is available: "+vehicle.IsAvailable);
             _showcaseMaterial.SetFloat(IsAvailableProperty,vehicle.IsAvailable ? 1f : 0f);         
         }
     }
