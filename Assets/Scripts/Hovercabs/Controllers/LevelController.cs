@@ -1,3 +1,4 @@
+using Hovercabs.Configurations.Gameplay.Vehicles;
 using Hovercabs.Managers;
 using Hovercabs.Models;
 using Hovercabs.Services;
@@ -13,11 +14,14 @@ namespace Hovercabs.Controllers
         private VehiclesService _vehiclesService;
         private Vehicle _currentVehicle;
         private GameObject _vehicle;
+
+        private VehicleGameplayConfig _config;
         
-        public void Init(TrackManager trackManager, VehiclesService vehiclesService)
+        public void Init(TrackManager trackManager, VehiclesService vehiclesService, VehicleGameplayConfig config)
         {
             _trackManager = trackManager;
             _vehiclesService = vehiclesService;
+            _config = config;
             
             _trackManager.Init();
             _currentVehicle = _vehiclesService.GetCurrentVehicle();
@@ -32,8 +36,8 @@ namespace Hovercabs.Controllers
         {
             _vehicle = Instantiate(Resources.Load<GameObject>($"Vehicles/{_currentVehicle.Id}/{_currentVehicle.Id}_low"),
                 transform, true);
-            _vehicle.transform.position = Vector3.zero;
-            _vehicle.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            _vehicle.transform.position = _config.initialPosition;
+            _vehicle.transform.localScale = _config.initialScale;
         }
         
         private void SetupCamera()
