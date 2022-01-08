@@ -257,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 715851173}
   trackManager: {fileID: 1300808796}
+  vehiclesConfig: {fileID: 11400000, guid: fc7d7c9e92ac17a449d83804907e8924, type: 2}
 --- !u!114 &1632539931
 MonoBehaviour:
   m_ObjectHideFlags: 0

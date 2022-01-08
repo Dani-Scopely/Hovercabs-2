@@ -16,7 +16,7 @@ namespace Hovercabs.Controllers
         {
             if(_currentVehicle!=null) Destroy(_currentVehicle);
             
-            _currentVehicle = Instantiate(vehicle.Model, transform);
+            _currentVehicle = Instantiate(vehicle.ModelHigh, transform);
             
             _currentVehicle.transform.localPosition = Vector3.zero;
             _currentVehicle.transform.localScale = Vector3.one;

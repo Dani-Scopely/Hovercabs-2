@@ -29,7 +29,7 @@ namespace Hovercabs.Controllers
             _config = config;
             _vehiclesConfig = vehiclesConfig;
             
-            _trackManager.Init();
+            //_trackManager.Init();
             _currentVehicle = _vehiclesService.GetCurrentVehicle();
          
             SetupVehicle();
@@ -38,9 +38,7 @@ namespace Hovercabs.Controllers
 
         private void SetupVehicle()
         {
-            var v = Instantiate(Resources.Load<GameObject>($"Vehicles/{_currentVehicle.Id}/{_currentVehicle.Id}_low"),
-                transform, true);
-
+            var v = Instantiate(_currentVehicle.ModelLow, transform, true);
             _vehicleController = v.GetComponent<VehicleController>();
             _vehicleController.OnDistanceChanged += OnDistanceChanged;
             _vehicleController.Init(_config, _vehiclesConfig.GetVehicleConfig(_currentVehicle.Id));

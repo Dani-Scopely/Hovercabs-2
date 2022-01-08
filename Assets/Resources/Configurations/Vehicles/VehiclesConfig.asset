@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ec3e877d8440e682cc56f7dd34b720, type: 3}
   m_Name: VehiclesConfig
   m_EditorClassIdentifier: 
+  vehiclesPrefabPath: Prefabs/Vehicles/
   vehiclesConfig:
   - {fileID: 11400000, guid: 97cb23bf74c82b048afad3ae0d4a9bae, type: 2}
   - {fileID: 11400000, guid: 205bd4348d50f374b87d6c3781c9ee39, type: 2}

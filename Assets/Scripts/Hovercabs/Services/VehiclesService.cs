@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Hovercabs.Configurations.Vehicles;
 using Hovercabs.Events;
 using Hovercabs.Loaders;
 using Hovercabs.Models;
@@ -18,13 +19,13 @@ namespace Hovercabs.Services
         private int _currentVehicleIndex = 0;
         
         private readonly VehiclesLoader _vehiclesLoader;
-        
+
         public OnVehiclesLoaded OnVehiclesLoaded { get; set; }
         
-        public VehiclesService()
+        public VehiclesService(VehiclesConfig vehiclesConfig)
         {
             _vehicles = new List<Vehicle>();
-            _vehiclesLoader = new VehiclesLoader(OnVehicleLoaded);
+            _vehiclesLoader = new VehiclesLoader(vehiclesConfig, OnVehicleLoaded);
         }
 
         public void Init()
