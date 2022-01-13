@@ -29,7 +29,7 @@ namespace Hovercabs.Controllers
             _config = config;
             _vehiclesConfig = vehiclesConfig;
             
-            //_trackManager.Init();
+            _trackManager.Init();
             _currentVehicle = _vehiclesService.GetCurrentVehicle();
          
             SetupVehicle();

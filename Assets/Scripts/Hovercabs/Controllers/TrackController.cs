@@ -10,6 +10,12 @@ namespace Hovercabs.Controllers
         private float _destroyDistance;
         private bool _markToDestroy = false;
 
+        private void Awake()
+        {
+            var collider = gameObject.AddComponent<BoxCollider>();
+            collider.isTrigger = true;
+        }
+
         public void Init(float destroyDistance, Action<GameObject> onTrackExit, out Vector3 size)
         {
             _onTrackExit = onTrackExit;
@@ -23,9 +29,16 @@ namespace Hovercabs.Controllers
         {
             _markToDestroy = true;
             _other = other.gameObject;
-            NotifyTrackExit();
+            
+            Invoke(nameof(DelayedDestroy),0.1f);
+            //NotifyTrackExit();
         }
 
+        private void DelayedDestroy()
+        {
+            _onTrackExit?.Invoke(gameObject);
+        }
+        
         private void NotifyTrackExit()
         {
             if (_other == null) return;
@@ -33,6 +46,7 @@ namespace Hovercabs.Controllers
             
             if (_markToDestroy && Vector3.Distance(_other.transform.position, transform.position) > _destroyDistance)
             {
+                Debug.Log("DISTANCE: "+_destroyDistance);
                 _onTrackExit?.Invoke(gameObject);
             }
         }

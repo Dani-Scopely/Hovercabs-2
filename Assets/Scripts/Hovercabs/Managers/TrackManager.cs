@@ -38,10 +38,10 @@ namespace Hovercabs.Managers
 
         private void SpawnTrack()
         {
-            var go = Instantiate(Resources.Load<GameObject>($"Tracks/TO-DELETE-Temporal/tmp_track_01"), transform, true);
-            go.AddComponent<TrackController>().Init(1f, OnTrackExit, out var trackSize);
-         
-            go.transform.position = new Vector3(0, 0, _currentTrackNum * trackSize.z);
+            var go = Instantiate(Resources.Load<GameObject>($"Hovercabs/3D/Roads/Prefabs/Roads/Road/pf_tr3k3"), transform, true);
+            go.AddComponent<TrackController>().Init(3f, OnTrackExit, out var trackSize);
+
+            go.transform.position = new Vector3(6, 0, _currentTrackNum * trackSize.z);
             go.transform.name = $"Track_{_currentTrackNum}";
             _currentTracks.Enqueue(go);
             _currentTrackNum++;
