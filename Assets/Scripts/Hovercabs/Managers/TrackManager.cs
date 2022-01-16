@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Hovercabs.Controllers;
+using Hovercabs.Models;
+using Hovercabs.Pools;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Hovercabs.Managers
 {
@@ -10,24 +13,47 @@ namespace Hovercabs.Managers
         private const int TrackSize = 5;
         private int _currentTrackNum = 0;
         private Queue<GameObject> _currentTracks;
+        private VehicleController _vehicleController;
+        private float _accumulatedTrackSize = 0f;
 
-        public void Init()
+        [SerializeField] private TrackPool trackPool;
+        [SerializeField] private int bufferTrackSize = 10;
+        [SerializeField] private float destroyDistanceFactor = 1.5f;
+
+        private Track _initialTrackData;
+        
+        public void Init(Track trackData)
         {
-            DestroyAllTracks();
+            _initialTrackData = trackData;
+            
+            trackPool.Init();
+            
+            Reset();
 
             _currentTrackNum = 0;
+            _accumulatedTrackSize = 0f;
             _currentTracks = new Queue<GameObject>();
 
-            for (var i = 0; i < 5; i++)
+            for (var i = 0; i < bufferTrackSize; i++)
             {
                 SpawnTrack();
             }
         }
 
+        public void Reset()
+        {
+            DestroyAllTracks();
+        }
+        
+        public void SetVehicleController(VehicleController vehicleController)
+        {
+            _vehicleController = vehicleController;
+        }
+        
         private void RemoveOldestTrack()
         {
             var entry = _currentTracks.Dequeue();
-            Destroy(entry);
+            trackPool.Recycle(entry.GetComponent<TrackController>());
         }
 
         private void OnTrackExit(GameObject track)
@@ -36,17 +62,48 @@ namespace Hovercabs.Managers
             SpawnTrack();
         }
 
-        private void SpawnTrack()
+        private void SpawnTrack(Track track = null)
         {
-            var go = Instantiate(Resources.Load<GameObject>($"Hovercabs/3D/Roads/Prefabs/Roads/Road/pf_tr3k3"), transform, true);
-            go.AddComponent<TrackController>().Init(3f, OnTrackExit, out var trackSize);
+            var tData = new Track();
+            
+            if (track == null)
+            {
+                tData = new Track
+                {
+                    Id = _currentTrackNum % 10 == 0 ? "tr_taxi_on3kright" : "tr3k3",
+                    IsStartTrack = false
+                };
+            }
+            else
+            {
+                tData = _initialTrackData;
+            }
 
-            go.transform.position = new Vector3(6, 0, _currentTrackNum * trackSize.z);
-            go.transform.name = $"Track_{_currentTrackNum}";
-            _currentTracks.Enqueue(go);
+            InitializeTrack(tData);
+            
             _currentTrackNum++;
         }
 
+        private void InitializeTrack(Track trackData)
+        {
+            var go = trackPool.Get(trackData);
+            go.SetActive(true);
+            
+            go.transform.SetParent(transform);
+            
+            
+            var trackController = go.AddComponent<TrackController>();
+            trackController.Init(_vehicleController, OnTrackExit, out var trackSize);
+            trackController.TrackData = trackData;
+            trackController.DestroyDistance = trackSize.z*destroyDistanceFactor;
+            
+            go.transform.position = new Vector3(6, 0, trackData.IsStartTrack ? -trackSize.z : _accumulatedTrackSize);
+            
+            _accumulatedTrackSize += trackSize.z;
+            
+            _currentTracks.Enqueue(go);
+
+        }
         private void DestroyAllTracks()
         {
             if (_currentTracks == null) return;
@@ -56,7 +113,7 @@ namespace Hovercabs.Managers
             for (var i = 0; i < enqueuedItems; i++)
             {
                 var t = _currentTracks.Dequeue();
-                GameObject.Destroy(t);
+                trackPool.Recycle(t.GetComponent<TrackController>());
             }
         }
     }

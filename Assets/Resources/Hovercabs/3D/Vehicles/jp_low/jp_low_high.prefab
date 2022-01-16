@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1731708406477661614}
   m_Layer: 0
   m_Name: jp_low_high
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,5 +114,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294ffb4b1fe873340a47903d0e63c1da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 20
   id: jp_low

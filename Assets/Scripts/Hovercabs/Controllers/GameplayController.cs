@@ -17,7 +17,7 @@ namespace Hovercabs.Controllers
         [SerializeField] private VehicleGameplayConfig vehicleGameplayConfig;
 
         [SerializeField] private VehiclesConfig vehiclesConfig;
-        
+
         public void Init(TrackManager trackManager, VehiclesService vehiclesService, Action onQuit)
         {
             gameplayCanvasController.Init(onQuit);

@@ -79,10 +79,10 @@ namespace Hovercabs.Controllers
 
             }else if (Input.GetKeyUp(KeyCode.RightArrow))
             {
-                transform.position += new Vector3(1, 0, 0);
+                transform.position += new Vector3(4, 0, 0);
             }else if (Input.GetKeyUp(KeyCode.LeftArrow))
             {
-                transform.position += new Vector3(-1, 0, 0);
+                transform.position += new Vector3(-4, 0, 0);
             }
         }
 

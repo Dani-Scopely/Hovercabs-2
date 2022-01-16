@@ -28,6 +28,11 @@ namespace Hovercabs.FSM.States
             _operation.completed += OnMainMenuSceneUnloaded;
         }
 
+        public override void Stop()
+        {
+            _trackManager.Reset();
+        }
+
         private void OnMainMenuSceneUnloaded(AsyncOperation obj)
         {
             _operation = SceneManager.LoadSceneAsync("Gameplay", LoadSceneMode.Additive);

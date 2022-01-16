@@ -18,7 +18,7 @@ namespace Hovercabs.FSM.States
 
         public override void Start()
         {
-            _trackManager.Init();
+            //_trackManager.Init();
         }
     }
 }

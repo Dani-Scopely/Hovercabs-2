@@ -1,53 +1,60 @@
 using System;
+using Hovercabs.Models;
 using UnityEngine;
 
 namespace Hovercabs.Controllers
 {
     public class TrackController : MonoBehaviour
     {
+        public Track TrackData { get; set; }
         private Action<GameObject> _onTrackExit;
         private GameObject _other;
-        private float _destroyDistance;
+        public float DestroyDistance { get; set; }
         private bool _markToDestroy = false;
 
+        [SerializeField] private float distanceToVehicle = 0f;
+        private VehicleController _vehicleController;
         private void Awake()
         {
             var collider = gameObject.AddComponent<BoxCollider>();
             collider.isTrigger = true;
         }
 
-        public void Init(float destroyDistance, Action<GameObject> onTrackExit, out Vector3 size)
+        public TrackController Init(VehicleController vehicleController, Action<GameObject> onTrackExit, out Vector3 size)
         {
+            _vehicleController = vehicleController;
             _onTrackExit = onTrackExit;
-            _destroyDistance = destroyDistance;
             _markToDestroy = false;
 
             size = GetComponent<MeshRenderer>().bounds.size;
+
+            return this;
         }
+
+        
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    if (_vehicleController == null) return;
+            
+            
+            //Debug.Log($"{_trackData.Id} --> {other.name}");
+        //}
 
         private void OnTriggerExit(Collider other)
         {
-            _markToDestroy = true;
-            _other = other.gameObject;
-            
-            Invoke(nameof(DelayedDestroy),0.1f);
-            //NotifyTrackExit();
+            _markToDestroy = other.CompareTag("Vehicle");
         }
 
-        private void DelayedDestroy()
+        private void Update()
         {
-            _onTrackExit?.Invoke(gameObject);
-        }
-        
-        private void NotifyTrackExit()
-        {
-            if (_other == null) return;
-
+            if (!_markToDestroy) return;
             
-            if (_markToDestroy && Vector3.Distance(_other.transform.position, transform.position) > _destroyDistance)
+            distanceToVehicle = Vector3.Distance(_vehicleController.transform.position, transform.position);
+
+            if (distanceToVehicle > DestroyDistance && _markToDestroy)
             {
-                Debug.Log("DISTANCE: "+_destroyDistance);
                 _onTrackExit?.Invoke(gameObject);
+                //Destroy(gameObject);
             }
         }
     }

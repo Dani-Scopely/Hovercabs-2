@@ -29,11 +29,13 @@ namespace Hovercabs.Controllers
             _config = config;
             _vehiclesConfig = vehiclesConfig;
             
-            _trackManager.Init();
+           
             _currentVehicle = _vehiclesService.GetCurrentVehicle();
          
             SetupVehicle();
             SetupCamera();
+            
+            _trackManager.Init(new Track("tr3k3",true));
         }
 
         private void SetupVehicle()
@@ -42,6 +44,7 @@ namespace Hovercabs.Controllers
             _vehicleController = v.GetComponent<VehicleController>();
             _vehicleController.OnDistanceChanged += OnDistanceChanged;
             _vehicleController.Init(_config, _vehiclesConfig.GetVehicleConfig(_currentVehicle.Id));
+            _trackManager.SetVehicleController(_vehicleController);
         }
 
         private void OnDestroy()
