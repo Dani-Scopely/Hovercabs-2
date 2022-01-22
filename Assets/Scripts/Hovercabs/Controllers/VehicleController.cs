@@ -21,8 +21,12 @@ namespace Hovercabs.Controllers
 
         [SerializeField] private float currentSpeed = 0f;
         [SerializeField] private float distance = 0f;
+
+        private PassengerController _passenger;
         
         public Action<float> OnDistanceChanged { get; set; }
+
+        private Passenger _currentPassenger;
         
         private void Awake()
         {
@@ -43,6 +47,24 @@ namespace Hovercabs.Controllers
             SetupModel();
         }
 
+        public void DropOnPassenger(Passenger passenger)
+        {
+            _currentPassenger = passenger;
+            
+            var ob = Instantiate(Resources.Load<GameObject>("Hovercabs/3D/Passengers/Prefabs/PassengerPortrait"),
+                transform, false);
+            
+            _passenger = ob.GetComponent<PassengerController>();
+            _passenger.Init(passenger);
+        }
+
+        public void DropOffPassenger()
+        {
+            _passenger.Collect();
+            
+            Destroy(_passenger.gameObject);
+        }
+        
         private void SetupModel()
         {
             var t = transform;

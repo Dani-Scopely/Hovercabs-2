@@ -21,6 +21,7 @@ namespace Hovercabs.Managers
         [SerializeField] private float destroyDistanceFactor = 1.5f;
 
         private Track _initialTrackData;
+        private Queue<string> _preloadedTrackIndexes;
         
         public void Init(Track trackData)
         {
@@ -43,6 +44,8 @@ namespace Hovercabs.Managers
         public void Reset()
         {
             DestroyAllTracks();
+            
+            PreloadTrackConfig();
         }
         
         public void SetVehicleController(VehicleController vehicleController)
@@ -70,7 +73,7 @@ namespace Hovercabs.Managers
             {
                 tData = new Track
                 {
-                    Id = _currentTrackNum % 10 == 0 ? "tr_taxi_on3kright" : "tr3k3",
+                    Id = _preloadedTrackIndexes.Dequeue(),
                     IsStartTrack = false
                 };
             }
@@ -82,6 +85,26 @@ namespace Hovercabs.Managers
             InitializeTrack(tData);
             
             _currentTrackNum++;
+        }
+
+        private void PreloadTrackConfig()
+        {
+            _preloadedTrackIndexes?.Clear();
+            _preloadedTrackIndexes = new Queue<string>();
+
+            var lastTaxiStop = "tr_taxi_off1kright";
+            
+            for (var i = 0; i < 100; i++)
+            {
+                if (i % 10 == 0)
+                {
+                    lastTaxiStop = lastTaxiStop.Contains("off") ? "tr_taxi_on1kleft" : "tr_taxi_off1kleft";
+                    _preloadedTrackIndexes.Enqueue(lastTaxiStop);
+                    continue;
+                }
+                
+                _preloadedTrackIndexes.Enqueue("tr1k3");
+            }
         }
 
         private void InitializeTrack(Track trackData)

@@ -35,7 +35,7 @@ namespace Hovercabs.Controllers
             SetupVehicle();
             SetupCamera();
             
-            _trackManager.Init(new Track("tr3k3",true));
+            _trackManager.Init(new Track("tr1k1",true));
         }
 
         private void SetupVehicle()
