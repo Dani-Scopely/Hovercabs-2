@@ -14,6 +14,7 @@ namespace Hovercabs.FSM.States
     public class GameplayState : State
     {
         private readonly TrackManager _trackManager;
+        private readonly TrackService _trackService;
         private readonly VehiclesService _vehiclesService;
         private readonly ProfileService _profileService;
         private AsyncOperation _operation;
@@ -22,6 +23,7 @@ namespace Hovercabs.FSM.States
         public GameplayState(GameManager gameManager) : base(gameManager)
         {
             _trackManager = gameManager.TrackManager;
+            _trackService = gameManager.TrackService;
             _vehiclesService = gameManager.VehiclesService;
             _profileService = gameManager.ProfileService;
         }
@@ -48,7 +50,7 @@ namespace Hovercabs.FSM.States
         {
             _operation.completed -= OnGameplaySceneLoaded;
             _gameplayController = Object.FindObjectOfType<GameplayController>();
-            _gameplayController.Init(_trackManager, _vehiclesService, _profileService, OnQuitRace, OnGamePaused, OnGameOver);
+            _gameplayController.Init(_trackManager, _trackService, _vehiclesService, _profileService, OnQuitRace, OnGamePaused, OnGameOver);
         }
 
         private void OnQuitRace()

@@ -16,16 +16,18 @@ namespace Hovercabs
         
         private ProfileService _profileService;
         private VehiclesService _vehiclesService;
+        private TrackService _trackService;
         
         private void Awake()
         {
             _profileService = new ProfileService();
             _vehiclesService = new VehiclesService(vehiclesConfig);
+            _trackService = new TrackService();
         }
 
         private void Start()
         {
-            gameManager.Init(_profileService, _vehiclesService, trackManager);    
+            gameManager.Init(_trackService, _profileService, _vehiclesService, trackManager);    
         }
     }
 }

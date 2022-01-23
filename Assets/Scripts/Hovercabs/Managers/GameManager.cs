@@ -13,12 +13,15 @@ namespace Hovercabs.Managers
     {
         public ProfileService ProfileService { get; set; }
         public VehiclesService VehiclesService { get; set; }
+        public TrackService TrackService { get; set; }
         public TrackManager TrackManager { get; set; }
+
         
-        public void Init(ProfileService profileService, VehiclesService vehiclesService, TrackManager trackManager)
+        public void Init(TrackService trackService, ProfileService profileService, VehiclesService vehiclesService, TrackManager trackManager)
         {
             EventBus.GetBus().Register(this, typeof(OnStateChanged));
-            
+
+            TrackService = trackService;
             ProfileService = profileService;
             VehiclesService = vehiclesService;
             TrackManager = trackManager;

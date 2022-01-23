@@ -4,7 +4,7 @@ using Hovercabs.Configurations.Gameplay.Vehicles;
 using Hovercabs.Configurations.Vehicles;
 using UnityEngine;
 
-namespace Hovercabs.Controllers
+namespace Hovercabs.Components
 {
     public class VehicleMovementComponent : MonoBehaviour
     {

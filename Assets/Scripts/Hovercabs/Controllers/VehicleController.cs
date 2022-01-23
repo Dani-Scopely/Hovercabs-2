@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using Hovercabs.Components;
 using Hovercabs.Configurations.Gameplay.Vehicles;
 using Hovercabs.Configurations.Vehicles;
 using Hovercabs.Models;

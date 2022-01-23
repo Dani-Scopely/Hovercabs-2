@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Hovercabs.Controllers;
 using Hovercabs.Models;
 using Hovercabs.Pools;
+using Hovercabs.Services;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -21,10 +22,13 @@ namespace Hovercabs.Managers
         [SerializeField] private float destroyDistanceFactor = 1.5f;
 
         private Track _initialTrackData;
-        private Queue<string> _preloadedTrackIndexes;
+
+        private TrackService _trackService;
         
-        public void Init(Track trackData)
+        public void Init(TrackService trackService, Track trackData)
         {
+            _trackService = trackService;
+            
             _initialTrackData = trackData;
             
             trackPool.Init();
@@ -45,7 +49,7 @@ namespace Hovercabs.Managers
         {
             DestroyAllTracks();
             
-            PreloadTrackConfig();
+            _trackService.InitLevelTracks();
         }
         
         public void SetVehicleController(VehicleController vehicleController)
@@ -73,7 +77,7 @@ namespace Hovercabs.Managers
             {
                 tData = new Track
                 {
-                    Id = _preloadedTrackIndexes.Dequeue(),
+                    Id = _trackService.GetTrackId(),
                     IsStartTrack = false
                 };
             }
@@ -85,26 +89,6 @@ namespace Hovercabs.Managers
             InitializeTrack(tData);
             
             _currentTrackNum++;
-        }
-
-        private void PreloadTrackConfig()
-        {
-            _preloadedTrackIndexes?.Clear();
-            _preloadedTrackIndexes = new Queue<string>();
-
-            var lastTaxiStop = "tr_taxi_off1kright";
-            
-            for (var i = 0; i < 100; i++)
-            {
-                if (i % 10 == 0)
-                {
-                    lastTaxiStop = lastTaxiStop.Contains("off") ? "tr_taxi_on1kleft" : "tr_taxi_off1kleft";
-                    _preloadedTrackIndexes.Enqueue(lastTaxiStop);
-                    continue;
-                }
-                
-                _preloadedTrackIndexes.Enqueue("tr1k3");
-            }
         }
 
         private void InitializeTrack(Track trackData)

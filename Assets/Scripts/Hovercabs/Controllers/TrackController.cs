@@ -20,25 +20,14 @@ namespace Hovercabs.Controllers
             collider.isTrigger = true;
         }
 
-        public TrackController Init(VehicleController vehicleController, Action<GameObject> onTrackExit, out Vector3 size)
+        public void Init(VehicleController vehicleController, Action<GameObject> onTrackExit, out Vector3 size)
         {
             _vehicleController = vehicleController;
             _onTrackExit = onTrackExit;
             _markToDestroy = false;
 
             size = GetComponent<MeshRenderer>().bounds.size;
-
-            return this;
         }
-
-        
-        //private void OnTriggerEnter(Collider other)
-        //{
-        //    if (_vehicleController == null) return;
-            
-            
-            //Debug.Log($"{_trackData.Id} --> {other.name}");
-        //}
 
         private void OnTriggerExit(Collider other)
         {
@@ -54,7 +43,6 @@ namespace Hovercabs.Controllers
             if (distanceToVehicle > DestroyDistance && _markToDestroy)
             {
                 _onTrackExit?.Invoke(gameObject);
-                //Destroy(gameObject);
             }
         }
     }

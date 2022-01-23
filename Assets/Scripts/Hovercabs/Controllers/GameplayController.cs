@@ -26,7 +26,7 @@ namespace Hovercabs.Controllers
 
         private Result _raceResult;
         
-        public void Init(TrackManager trackManager, VehiclesService vehiclesService, ProfileService profileService, Action onQuit, Action<bool> onPause, Action<Result> onGameOver)
+        public void Init(TrackManager trackManager, TrackService trackService, VehiclesService vehiclesService, ProfileService profileService, Action onQuit, Action<bool> onPause, Action<Result> onGameOver)
         {
             _profileService = profileService;
 
@@ -36,10 +36,10 @@ namespace Hovercabs.Controllers
 
             _raceResult = new Result();
             
-            InitLevel(trackManager, vehiclesService, profileService);
+            InitLevel(trackManager, trackService, vehiclesService, profileService);
         }
 
-        private void InitLevel(TrackManager trackManager, VehiclesService vehiclesService, ProfileService profileService)
+        private void InitLevel(TrackManager trackManager, TrackService trackService, VehiclesService vehiclesService, ProfileService profileService)
         {
             levelController.OnDistanceChanged += OnDistanceChanged;
             levelController.OnXenitsChanged += OnXenitsChanged;
@@ -47,7 +47,7 @@ namespace Hovercabs.Controllers
             levelController.OnOutOfFuel += OnOutOfFuel;
             levelController.OnPassengerDelivered += OnPassengerDelivered;
             
-            levelController.Init(trackManager, vehiclesService, profileService, vehicleGameplayConfig, vehiclesConfig);
+            levelController.Init(trackManager, trackService, vehiclesService, profileService, vehicleGameplayConfig, vehiclesConfig);
         }
 
         private void OnDestroy()
