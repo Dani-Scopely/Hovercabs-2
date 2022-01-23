@@ -48,7 +48,7 @@ namespace Hovercabs.FSM.States
         {
             _operation.completed -= OnGameplaySceneLoaded;
             _gameplayController = Object.FindObjectOfType<GameplayController>();
-            _gameplayController.Init(_trackManager, _vehiclesService, _profileService, OnQuitRace, OnGameOver);
+            _gameplayController.Init(_trackManager, _vehiclesService, _profileService, OnQuitRace, OnGamePaused, OnGameOver);
         }
 
         private void OnQuitRace()
@@ -59,6 +59,11 @@ namespace Hovercabs.FSM.States
             });
         }
 
+        private void OnGamePaused(bool isPaused)
+        {
+            Time.timeScale = isPaused ? 0 : 1;
+        }
+        
         private void OnGameOver(Result result)
         {
             Debug.Log("RESULT: "+JsonConvert.SerializeObject(result));

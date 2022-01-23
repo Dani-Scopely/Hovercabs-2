@@ -26,13 +26,13 @@ namespace Hovercabs.Controllers
 
         private Result _raceResult;
         
-        public void Init(TrackManager trackManager, VehiclesService vehiclesService, ProfileService profileService, Action onQuit, Action<Result> onGameOver)
+        public void Init(TrackManager trackManager, VehiclesService vehiclesService, ProfileService profileService, Action onQuit, Action<bool> onPause, Action<Result> onGameOver)
         {
             _profileService = profileService;
 
             OnGameOver = onGameOver;
             
-            gameplayCanvasController.Init(onQuit, profileService);
+            gameplayCanvasController.Init(onQuit, onPause, profileService);
 
             _raceResult = new Result();
             
@@ -81,7 +81,7 @@ namespace Hovercabs.Controllers
             
             gameplayCanvasController.SetXenits(_profileService.Profile.Xenits);
         }
-
+        
         private void OnOutOfFuel()
         {
             OnGameOver?.Invoke(_raceResult);

@@ -10,6 +10,7 @@ namespace Hovercabs.UI
     {
         private PauseCanvasView _view;
         private Action _onQuitRace;
+        private Action<bool> _onPaused;
         
         private void Awake()
         {
@@ -23,27 +24,28 @@ namespace Hovercabs.UI
             _view.OnQuitClicked += OnQuit;
         }
 
-        public void Init(Action onQuitRace)
+        public void Init(Action onQuitRace, Action<bool> onPaused)
         {
             _onQuitRace = onQuitRace;
+            _onPaused = onPaused;
         }
         
         public void Show(bool show)
         {
             gameObject.SetActive(show);
-            Time.timeScale = 0;
+            _onPaused?.Invoke(true);
         }
         
         private void OnContinue()
         {
             gameObject.SetActive(false);
-            Time.timeScale = 1;
+            _onPaused?.Invoke(false);
         }
 
         private void OnQuit()
         {
             _onQuitRace();
-            Time.timeScale = 1;
+            _onPaused?.Invoke(false);
         }
 
         private void OnDestroy()

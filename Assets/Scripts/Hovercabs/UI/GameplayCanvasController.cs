@@ -33,11 +33,11 @@ namespace Hovercabs.UI
             _view.OnPauseClick -= OnPauseClick;
         }
 
-        public void Init(Action onQuitRace, ProfileService profileService)
+        public void Init(Action onQuitRace, Action<bool> onPause, ProfileService profileService)
         {
             xenitsCanvasController.Init(profileService.Profile.Xenits);
             fuelCanvasController.Init();
-            pauseCanvasController.Init(onQuitRace);
+            pauseCanvasController.Init(onQuitRace, onPause);
         }
 
         public void SetDistance(float distance)
