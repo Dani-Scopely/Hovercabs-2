@@ -22,7 +22,9 @@ namespace Hovercabs.Controllers
         private VehiclesConfig _vehiclesConfig;
 
         public Action<float> OnDistanceChanged { get; set; }
+        public Action<float> OnFuelChanged {get; set; }
         public Action<int> OnXenitsChanged { get; set; }
+        public Action OnOutOfFuel { get; set; }
         
         public void Init(TrackManager trackManager, VehiclesService vehiclesService, ProfileService profileService, VehicleGameplayConfig config, VehiclesConfig vehiclesConfig)
         {
@@ -45,7 +47,9 @@ namespace Hovercabs.Controllers
             var v = Instantiate(_currentVehicle.ModelLow, transform, true);
             _vehicleController = v.GetComponent<VehicleController>();
             _vehicleController.OnDistanceChanged += OnDistanceChanged;
+            _vehicleController.OnFuelChanged += OnFuelChanged;
             _vehicleController.OnXenitsChanged += OnXenitsChanged;
+            _vehicleController.OnOutOfFuel += OnOutOfFuel;
             _vehicleController.Init(_config, _vehiclesConfig.GetVehicleConfig(_currentVehicle.Id));
             _trackManager.SetVehicleController(_vehicleController);
         }
@@ -53,6 +57,9 @@ namespace Hovercabs.Controllers
         private void OnDestroy()
         {
             _vehicleController.OnDistanceChanged -= OnDistanceChanged;
+            _vehicleController.OnFuelChanged -= OnFuelChanged;
+            _vehicleController.OnXenitsChanged -= OnXenitsChanged;
+            _vehicleController.OnOutOfFuel -= OnOutOfFuel;
         }
 
         private void SetupCamera()

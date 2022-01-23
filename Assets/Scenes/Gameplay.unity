@@ -1706,6 +1706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c636e0cc411b1754b9c6e03861287dc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fuelCanvasController: {fileID: 5208332486321015947}
   xenitsCanvasController: {fileID: 8964307923970278080}
   pauseCanvasController: {fileID: 602281903}
   distanceCanvasController: {fileID: 1297892021}
@@ -2070,6 +2071,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a2ca85d72c45a34a887d43eb0f88306, type: 3}
+--- !u!1 &5208332486321015946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5208332486298819120, guid: 2a2ca85d72c45a34a887d43eb0f88306, type: 3}
+  m_PrefabInstance: {fileID: 5208332486321015945}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5208332486321015947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5208332486321015946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb1a2d45e9bbe114f80af1312e60843e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5208332486321015948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5208332486321015946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 665318e934a0b494e9e02ce38e99148f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fillIndicator: {fileID: 5208332486321015949}
+--- !u!114 &5208332486321015949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5208332486340825122, guid: 2a2ca85d72c45a34a887d43eb0f88306, type: 3}
+  m_PrefabInstance: {fileID: 5208332486321015945}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8964307923970278077
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,7 +2,9 @@
 using Hovercabs.Events;
 using Hovercabs.FSM.States.Base;
 using Hovercabs.Managers;
+using Hovercabs.Models;
 using Hovercabs.Services;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils;
@@ -46,11 +48,21 @@ namespace Hovercabs.FSM.States
         {
             _operation.completed -= OnGameplaySceneLoaded;
             _gameplayController = Object.FindObjectOfType<GameplayController>();
-            _gameplayController.Init(_trackManager, _vehiclesService, _profileService, OnQuitRace);
+            _gameplayController.Init(_trackManager, _vehiclesService, _profileService, OnQuitRace, OnGameOver);
         }
 
         private void OnQuitRace()
         {
+            EventBus.GetBus().Send(new OnStateChanged
+            {
+                State = new MainMenuState(GameManager, GameManager.ProfileService, GameManager.VehiclesService, "Gameplay")
+            });
+        }
+
+        private void OnGameOver(Result result)
+        {
+            Debug.Log("RESULT: "+JsonConvert.SerializeObject(result));
+            
             EventBus.GetBus().Send(new OnStateChanged
             {
                 State = new MainMenuState(GameManager, GameManager.ProfileService, GameManager.VehiclesService, "Gameplay")

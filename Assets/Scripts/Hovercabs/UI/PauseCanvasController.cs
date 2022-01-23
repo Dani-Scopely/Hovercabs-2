@@ -30,17 +30,20 @@ namespace Hovercabs.UI
         
         public void Show(bool show)
         {
-            gameObject.SetActive(show);    
+            gameObject.SetActive(show);
+            Time.timeScale = 0;
         }
         
         private void OnContinue()
         {
             gameObject.SetActive(false);
+            Time.timeScale = 1;
         }
 
         private void OnQuit()
         {
             _onQuitRace();
+            Time.timeScale = 1;
         }
 
         private void OnDestroy()

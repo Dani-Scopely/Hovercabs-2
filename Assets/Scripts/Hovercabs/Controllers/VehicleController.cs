@@ -25,9 +25,12 @@ namespace Hovercabs.Controllers
         private PassengerController _passenger;
         
         public Action<float> OnDistanceChanged { get; set; }
+        public Action<float> OnFuelChanged { get; set; }
         public Action<int> OnXenitsChanged { get; set; }
+        public Action OnOutOfFuel { get; set; }
 
         private Passenger _currentPassenger;
+        private float _currentFuel;
         
         private void Awake()
         {
@@ -44,6 +47,7 @@ namespace Hovercabs.Controllers
         {
             _vehicleGameplayConfig = vehicleGameplayConfig;
             _vehicleConfig = vehicleConfig;
+            _currentFuel = 100f;
             
             SetupModel();
         }
@@ -82,7 +86,15 @@ namespace Hovercabs.Controllers
             
             distance = Math.Abs(Vector3.Distance(_vehicleGameplayConfig.initialPosition, transform.position));
             
+            _currentFuel -= 1f * (currentSpeed/_vehicleConfig.fuelConsumption);
+
             OnDistanceChanged?.Invoke(distance);
+            OnFuelChanged?.Invoke(Math.Max(_currentFuel,0));
+            
+            if (_currentFuel < 0)
+            {
+                OnOutOfFuel?.Invoke();
+            }
         }
 
         private void Update()
