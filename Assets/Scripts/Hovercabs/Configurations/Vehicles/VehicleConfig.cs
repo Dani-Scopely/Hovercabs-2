@@ -10,6 +10,7 @@ namespace Hovercabs.Configurations.Vehicles
         public float maxAcceleration;
         public float breakStrength;
         public float fuelConsumption;
+        public float timeToTurn;
         public int level;
         public Sprite emblem;
         public GameObject prefabHigh;

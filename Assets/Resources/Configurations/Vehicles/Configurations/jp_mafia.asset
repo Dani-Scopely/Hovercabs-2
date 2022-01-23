@@ -17,6 +17,7 @@ MonoBehaviour:
   maxAcceleration: 2
   breakStrength: 2
   fuelConsumption: 500
+  timeToTurn: 0.2
   level: 0
   emblem: {fileID: -1821959852234312386, guid: af487362b3315c147b354cb9c1e28370, type: 3}
   prefabHigh: {fileID: 100000, guid: f3dbacd8921f4a14bb4009b64f1a1b32, type: 3}

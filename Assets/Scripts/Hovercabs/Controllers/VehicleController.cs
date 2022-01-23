@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using Hovercabs.Configurations.Gameplay.Vehicles;
 using Hovercabs.Configurations.Vehicles;
 using Hovercabs.Models;
@@ -11,16 +12,13 @@ namespace Hovercabs.Controllers
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(BoxCollider))]
     [RequireComponent(typeof(VehicleView))]
+    [RequireComponent(typeof(VehicleMovementComponent))]
     public class VehicleController : MonoBehaviour
     {
-        [SerializeField] private float speed = 1.0f;
         private VehicleConfig _vehicleConfig;
         private VehicleGameplayConfig _vehicleGameplayConfig;
-        private Rigidbody _rigidbody;
         private VehicleView _view;
-
-        [SerializeField] private float currentSpeed = 0f;
-        [SerializeField] private float distance = 0f;
+        private VehicleMovementComponent _movementComponent;
 
         private PassengerController _passenger;
         
@@ -28,14 +26,16 @@ namespace Hovercabs.Controllers
         public Action<float> OnFuelChanged { get; set; }
         public Action<int> OnXenitsChanged { get; set; }
         public Action OnOutOfFuel { get; set; }
+        
+        public Action<Passenger,bool> OnPassengerDelivered { get; set; }
 
         private Passenger _currentPassenger;
-        private float _currentFuel;
+       
         
         private void Awake()
         {
-            _rigidbody = GetComponent<Rigidbody>();
             _view = GetComponent<VehicleView>();
+            _movementComponent = GetComponent<VehicleMovementComponent>();
         }
 
         private void Start()
@@ -47,13 +47,19 @@ namespace Hovercabs.Controllers
         {
             _vehicleGameplayConfig = vehicleGameplayConfig;
             _vehicleConfig = vehicleConfig;
-            _currentFuel = 100f;
             
-            SetupModel();
+            InitMovementController();
         }
 
         public void DropOnPassenger(Passenger passenger)
         {
+            // Oh! You forgot to drop off your currentPassenger! We need to force the dropOff
+            if (_currentPassenger != null)
+            {
+                DropOffPassenger(true);
+                return;
+            }
+            
             _currentPassenger = passenger;
             
             var ob = Instantiate(Resources.Load<GameObject>("Hovercabs/3D/Passengers/Prefabs/PassengerPortrait"),
@@ -63,64 +69,27 @@ namespace Hovercabs.Controllers
             _passenger.Init(passenger);
         }
 
-        public void DropOffPassenger()
+        public void DropOffPassenger(bool isForced = false)
         {
+            if (_passenger == null) return;
+            
             var collectedXenits = _passenger.Collect();
+
+            collectedXenits = isForced ? collectedXenits * -1 : collectedXenits;
             
             OnXenitsChanged?.Invoke(collectedXenits);
             
+            OnPassengerDelivered?.Invoke(_currentPassenger, !isForced);
+            
             Destroy(_passenger.gameObject);
+
+            _currentPassenger = null;
+            _passenger = null;
         }
         
-        private void SetupModel()
+        private void InitMovementController()
         {
-            var t = transform;
-            
-            t.position = _vehicleGameplayConfig.initialPosition;
-            t.localScale = _vehicleGameplayConfig.initialScale;
-        }
-        
-        private void FixedUpdate()
-        {
-            currentSpeed = _rigidbody.velocity.z;
-            
-            distance = Math.Abs(Vector3.Distance(_vehicleGameplayConfig.initialPosition, transform.position));
-            
-            _currentFuel -= 1f * (currentSpeed/_vehicleConfig.fuelConsumption);
-
-            OnDistanceChanged?.Invoke(distance);
-            OnFuelChanged?.Invoke(Math.Max(_currentFuel,0));
-            
-            if (_currentFuel < 0)
-            {
-                OnOutOfFuel?.Invoke();
-            }
-        }
-
-        private void Update()
-        {
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                if (currentSpeed > _vehicleConfig.maxSpeed) return;
-
-                _rigidbody.AddForce(new Vector3(0,0,_vehicleConfig.maxAcceleration));
-            }else if (Input.GetKey(KeyCode.DownArrow))
-            {
-                if (currentSpeed <= 0)
-                {
-                    _rigidbody.AddForce(Vector3.zero);
-                    return;
-                }
-                
-                _rigidbody.AddForce(new Vector3(0,0,-_vehicleConfig.breakStrength));
-
-            }else if (Input.GetKeyUp(KeyCode.RightArrow))
-            {
-                transform.position += new Vector3(4, 0, 0);
-            }else if (Input.GetKeyUp(KeyCode.LeftArrow))
-            {
-                transform.position += new Vector3(-4, 0, 0);
-            }
+            _movementComponent.Init(_vehicleGameplayConfig, _vehicleConfig, OnDistanceChanged, OnFuelChanged, OnOutOfFuel);
         }
     }
 }

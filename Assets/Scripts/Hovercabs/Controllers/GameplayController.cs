@@ -45,6 +45,7 @@ namespace Hovercabs.Controllers
             levelController.OnXenitsChanged += OnXenitsChanged;
             levelController.OnFuelChanged += OnFuelChanged;
             levelController.OnOutOfFuel += OnOutOfFuel;
+            levelController.OnPassengerDelivered += OnPassengerDelivered;
             
             levelController.Init(trackManager, vehiclesService, profileService, vehicleGameplayConfig, vehiclesConfig);
         }
@@ -55,6 +56,7 @@ namespace Hovercabs.Controllers
             levelController.OnXenitsChanged -= OnXenitsChanged;
             levelController.OnFuelChanged -= OnFuelChanged;
             levelController.OnOutOfFuel -= OnOutOfFuel;
+            levelController.OnPassengerDelivered -= OnPassengerDelivered;
         }
 
         private void OnDistanceChanged(float distance)
@@ -85,6 +87,12 @@ namespace Hovercabs.Controllers
         private void OnOutOfFuel()
         {
             OnGameOver?.Invoke(_raceResult);
+        }
+
+        private void OnPassengerDelivered(Passenger passenger, bool isDelivered)
+        {
+            if (isDelivered) _raceResult.PassengersDelivered++;
+            else _raceResult.PassengersFailed++;
         }
     }
 }
