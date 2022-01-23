@@ -14,6 +14,7 @@ namespace Hovercabs.Controllers
         
         private TrackManager _trackManager;
         private VehiclesService _vehiclesService;
+        private ProfileService _profileService;
         private Vehicle _currentVehicle;
         private VehicleController _vehicleController;
 
@@ -21,15 +22,16 @@ namespace Hovercabs.Controllers
         private VehiclesConfig _vehiclesConfig;
 
         public Action<float> OnDistanceChanged { get; set; }
+        public Action<int> OnXenitsChanged { get; set; }
         
-        public void Init(TrackManager trackManager, VehiclesService vehiclesService, VehicleGameplayConfig config, VehiclesConfig vehiclesConfig)
+        public void Init(TrackManager trackManager, VehiclesService vehiclesService, ProfileService profileService, VehicleGameplayConfig config, VehiclesConfig vehiclesConfig)
         {
             _trackManager = trackManager;
             _vehiclesService = vehiclesService;
+            _profileService = profileService;
             _config = config;
             _vehiclesConfig = vehiclesConfig;
             
-           
             _currentVehicle = _vehiclesService.GetCurrentVehicle();
          
             SetupVehicle();
@@ -43,6 +45,7 @@ namespace Hovercabs.Controllers
             var v = Instantiate(_currentVehicle.ModelLow, transform, true);
             _vehicleController = v.GetComponent<VehicleController>();
             _vehicleController.OnDistanceChanged += OnDistanceChanged;
+            _vehicleController.OnXenitsChanged += OnXenitsChanged;
             _vehicleController.Init(_config, _vehiclesConfig.GetVehicleConfig(_currentVehicle.Id));
             _trackManager.SetVehicleController(_vehicleController);
         }

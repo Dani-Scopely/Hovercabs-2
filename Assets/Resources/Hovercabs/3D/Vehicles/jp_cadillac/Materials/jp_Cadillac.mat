@@ -85,7 +85,7 @@ Material:
     - MovementOffset: 0.3
     - MovementSpeed: 2.3
     - MovementStrength: 0.1
-    - RotationSpeed: 0
+    - RotationSpeed: 0.5
     - Vector1_037b17a38188402fac504eeaeee90797: 0
     - Vector1_2f4e4daacc0a47008679dfe77bf4d08d: 2.3
     - Vector1_47fb7c13880f4275885a55594bcfa918: 1

@@ -1706,6 +1706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c636e0cc411b1754b9c6e03861287dc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xenitsCanvasController: {fileID: 8964307923970278080}
   pauseCanvasController: {fileID: 602281903}
   distanceCanvasController: {fileID: 1297892021}
 --- !u!114 &1809898672
@@ -2166,3 +2167,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35b01ef53b97cef429e44e8c189a9a9b, type: 3}
+--- !u!114 &8964307923970278078 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5646936714399799572, guid: 35b01ef53b97cef429e44e8c189a9a9b, type: 3}
+  m_PrefabInstance: {fileID: 8964307923970278077}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8964307923970278079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8964307924133140872, guid: 35b01ef53b97cef429e44e8c189a9a9b, type: 3}
+  m_PrefabInstance: {fileID: 8964307923970278077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8964307923970278080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8964307923970278079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e63ebbde748f7d4cb089e130a0350f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8964307923970278081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8964307923970278079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf156399461fa77478572be5f4dc157f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 8964307923970278078}

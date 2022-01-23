@@ -1,5 +1,6 @@
 using System;
 using Hovercabs.Events;
+using Hovercabs.Services;
 using UnityEngine;
 using Utils;
 
@@ -8,8 +9,10 @@ namespace Hovercabs.UI
     [RequireComponent(typeof(GameplayCanvasView))]
     public class GameplayCanvasController : MonoBehaviour
     {
+        private ProfileService _profileService;
         private GameplayCanvasView _view;
 
+        [SerializeField] private XenitsCanvasController xenitsCanvasController;
         [SerializeField] private PauseCanvasController pauseCanvasController;
         [SerializeField] private DistanceCanvasController distanceCanvasController;
         
@@ -24,8 +27,9 @@ namespace Hovercabs.UI
             _view.OnPauseClick += OnPauseClick;
         }
         
-        public void Init(Action onQuitRace)
+        public void Init(Action onQuitRace, ProfileService profileService)
         {
+            xenitsCanvasController.Init(profileService.Profile.Xenits);
             pauseCanvasController.Init(onQuitRace);
         }
 
@@ -37,6 +41,11 @@ namespace Hovercabs.UI
         private void OnPauseClick()
         {
             pauseCanvasController.Show(true);
+        }
+
+        public void SetXenits(int xenits)
+        {
+            xenitsCanvasController.SetData(xenits);
         }
     }
 }

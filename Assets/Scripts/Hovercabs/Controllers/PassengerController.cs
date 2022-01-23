@@ -20,9 +20,9 @@ namespace Hovercabs.Controllers
             portrait.LookAt(Camera.main.transform);
         }
 
-        public void Collect()
+        public int Collect()
         {
-            Debug.Log($"Collected {_passenger.Xenits} from {_passenger.Name}");
+            return _passenger.Xenits;
         }
     }
 }

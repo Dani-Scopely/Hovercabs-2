@@ -12,23 +12,28 @@ namespace Hovercabs.Controllers
     {
         [SerializeField] private GameplayCanvasController gameplayCanvasController;
         [SerializeField] private LevelController levelController;
+
+        private ProfileService _profileService;
         
         [Header("Configurations")]
         [SerializeField] private VehicleGameplayConfig vehicleGameplayConfig;
 
         [SerializeField] private VehiclesConfig vehiclesConfig;
 
-        public void Init(TrackManager trackManager, VehiclesService vehiclesService, Action onQuit)
+        public void Init(TrackManager trackManager, VehiclesService vehiclesService, ProfileService profileService, Action onQuit)
         {
-            gameplayCanvasController.Init(onQuit);
+            _profileService = profileService;
             
-            InitLevel(trackManager, vehiclesService);
+            gameplayCanvasController.Init(onQuit, profileService);
+            
+            InitLevel(trackManager, vehiclesService, profileService);
         }
 
-        private void InitLevel(TrackManager trackManager, VehiclesService vehiclesService)
+        private void InitLevel(TrackManager trackManager, VehiclesService vehiclesService, ProfileService profileService)
         {
             levelController.OnDistanceChanged += OnDistanceChanged;
-            levelController.Init(trackManager, vehiclesService, vehicleGameplayConfig, vehiclesConfig);
+            levelController.OnXenitsChanged += OnXenitsChanged;
+            levelController.Init(trackManager, vehiclesService, profileService, vehicleGameplayConfig, vehiclesConfig);
         }
 
         private void OnDestroy()
@@ -39,6 +44,15 @@ namespace Hovercabs.Controllers
         private void OnDistanceChanged(float distance)
         {
             gameplayCanvasController.SetDistance(distance);
+        }
+        
+        private void OnXenitsChanged(int xenits)
+        {
+            _profileService.Profile.Xenits+=xenits;
+            
+            _profileService.SaveProfile();
+            
+            gameplayCanvasController.SetXenits(_profileService.Profile.Xenits);
         }
     }
 }

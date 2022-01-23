@@ -25,6 +25,7 @@ namespace Hovercabs.Controllers
         private PassengerController _passenger;
         
         public Action<float> OnDistanceChanged { get; set; }
+        public Action<int> OnXenitsChanged { get; set; }
 
         private Passenger _currentPassenger;
         
@@ -60,7 +61,9 @@ namespace Hovercabs.Controllers
 
         public void DropOffPassenger()
         {
-            _passenger.Collect();
+            var collectedXenits = _passenger.Collect();
+            
+            OnXenitsChanged?.Invoke(collectedXenits);
             
             Destroy(_passenger.gameObject);
         }
@@ -79,7 +82,7 @@ namespace Hovercabs.Controllers
             
             distance = Math.Abs(Vector3.Distance(_vehicleGameplayConfig.initialPosition, transform.position));
             
-            NotifyUI();
+            OnDistanceChanged?.Invoke(distance);
         }
 
         private void Update()
@@ -106,11 +109,6 @@ namespace Hovercabs.Controllers
             {
                 transform.position += new Vector3(-4, 0, 0);
             }
-        }
-
-        private void NotifyUI()
-        {
-            OnDistanceChanged?.Invoke(distance);
         }
     }
 }
