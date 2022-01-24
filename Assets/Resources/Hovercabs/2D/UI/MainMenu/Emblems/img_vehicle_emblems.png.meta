@@ -72,6 +72,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -484,6 +485,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      jp_46: -8230101829862930227
+      jp_xwind: -3464496458167568919
+      jp_low: 2958540979712078020
+      jp_huevo: 448242972994834158
+      jp_top: -5794382578081495184
+      jp_hippie: 2554100596524748515
+      jp_carga1: -2430113994781048717
+      jp_cadillac: -1241045791277537721
+      jp_carga0: -7045217869030421545
+      jp_mid: -6713650518350627489
+      jp_celica: 2825148440233703123
+      jp_paquita: -9050954936610687866
+      jp_mauricio: 9173388446537265530
+      jp_javi: -4650842665182119148
+      jp_mafia: -1821959852234312386
+      jp_carga2: -5453446883392806842
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

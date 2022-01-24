@@ -2,10 +2,12 @@
 using DG.Tweening;
 using Hovercabs.Configurations.Gameplay.Vehicles;
 using Hovercabs.Configurations.Vehicles;
+using Hovercabs.Controllers;
 using UnityEngine;
 
 namespace Hovercabs.Components
 {
+    [RequireComponent(typeof(SwipeController))]
     public class VehicleMovementComponent : MonoBehaviour
     {
         private float _distance;
@@ -17,6 +19,7 @@ namespace Hovercabs.Components
         private Rigidbody _rigidbody;
         private VehicleConfig _vehicleConfig;
         private VehicleGameplayConfig _vehicleGameplayConfig;
+        private SwipeController _swipeController;
         private Action<float> _onDistanceChanged;
         private Action<float> _onFuelChanged;
         private Action _onOutOfFuel;
@@ -24,6 +27,7 @@ namespace Hovercabs.Components
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            _swipeController = GetComponent<SwipeController>();
         }
 
         public void Init(VehicleGameplayConfig vehicleGameplayConfig, VehicleConfig vehicleConfig, 
@@ -65,29 +69,28 @@ namespace Hovercabs.Components
         
         private void Update()
         {
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                if (_currentSpeed > _vehicleConfig.maxSpeed) return;
+            if (_swipeController.SwipeLeft)  TurnLeft();
+            if (_swipeController.SwipeRight) TurnRight();
+            if (_swipeController.SwipeUp) Accelerate();
+            if (_swipeController.SwipeDown) Brake();
+        }
 
-                _rigidbody.AddForce(new Vector3(0,0,_vehicleConfig.maxAcceleration));
-                
-            }else if (Input.GetKey(KeyCode.DownArrow))
-            {
-                if (_currentSpeed <= 0)
-                {
-                    _rigidbody.AddForce(Vector3.zero);
-                    return;
-                }
-                
-                _rigidbody.AddForce(new Vector3(0,0,-_vehicleConfig.breakStrength));
+        private void Accelerate()
+        {
+            if (_currentSpeed > _vehicleConfig.maxSpeed) return;
 
-            }else if (Input.GetKey(KeyCode.RightArrow))
+            _rigidbody.AddForce(new Vector3(0,0,_vehicleConfig.maxAcceleration*10f));
+        }
+
+        private void Brake()
+        {
+            if (_currentSpeed <= 0)
             {
-                TurnRight();
-            }else if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                TurnLeft();
+                _rigidbody.AddForce(Vector3.zero);
+                return;
             }
+                
+            _rigidbody.AddForce(new Vector3(0,0,-_vehicleConfig.breakStrength));
         }
         
         private void TurnRight()

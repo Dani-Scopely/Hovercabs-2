@@ -22,6 +22,7 @@ namespace Hovercabs.Controllers
         private VehicleMovementComponent _movementComponent;
 
         private PassengerController _passenger;
+        private SwipeController _swipeController;
         
         public Action<float> OnDistanceChanged { get; set; }
         public Action<float> OnFuelChanged { get; set; }
