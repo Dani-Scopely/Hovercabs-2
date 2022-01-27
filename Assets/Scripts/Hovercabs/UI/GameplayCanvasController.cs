@@ -62,9 +62,8 @@ namespace Hovercabs.UI
             fuelCanvasController.SetData(fuel);
         }
 
-        public void SetCountdown(int from)
+        public void SetCountdown()
         {
-            countdownCanvasController.SetData(from);
             countdownCanvasController.gameObject.SetActive(true);
         }
     }

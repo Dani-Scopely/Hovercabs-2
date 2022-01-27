@@ -39,5 +39,12 @@ namespace Hovercabs.Controllers
                 audioSource.volume = _audioService.Get(audioMode);
             }
         }
+
+        public void PlayAudio(AudioClip clip)
+        {
+            audioSource.clip = clip;
+            if (!audioSource.enabled) return;
+            audioSource.Play();
+        }
     }
 }

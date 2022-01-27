@@ -63,7 +63,7 @@ namespace Hovercabs.Controllers
 
         private void OnLevelReady()
         {
-            gameplayCanvasController.SetCountdown(5);
+            gameplayCanvasController.SetCountdown();
         }
 
         private void OnCountdownEnded()
