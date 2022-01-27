@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: jp_xwind
   m_EditorClassIdentifier: 
   id: jp_xwind
-  maxSpeed: 0
+  maxSpeed: 50
   maxAcceleration: 2
   breakStrength: 2
   fuelConsumption: 500

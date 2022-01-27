@@ -14,6 +14,7 @@ namespace Hovercabs.Controllers
         
         private TrackManager _trackManager;
         private TrackService _trackService;
+        private LevelService _levelService;
         private VehiclesService _vehiclesService;
         private ProfileService _profileService;
         private Vehicle _currentVehicle;
@@ -28,10 +29,11 @@ namespace Hovercabs.Controllers
         public Action OnOutOfFuel { get; set; }
         public Action<Passenger,bool> OnPassengerDelivered { get; set; }
         
-        public void Init(TrackManager trackManager, TrackService trackService, VehiclesService vehiclesService, ProfileService profileService, VehicleGameplayConfig config, VehiclesConfig vehiclesConfig)
+        public void Init(TrackManager trackManager, TrackService trackService, VehiclesService vehiclesService, ProfileService profileService, LevelService levelService, VehicleGameplayConfig config, VehiclesConfig vehiclesConfig)
         {
             _trackManager = trackManager;
             _trackService = trackService;
+            _levelService = levelService;
             _vehiclesService = vehiclesService;
             _profileService = profileService;
             _config = config;
@@ -42,7 +44,7 @@ namespace Hovercabs.Controllers
             SetupVehicle();
             SetupCamera();
             
-            _trackManager.Init(_trackService, new Track("tr1k1",true));
+            _trackManager.Init(_trackService, _levelService);
         }
 
         private void SetupVehicle()

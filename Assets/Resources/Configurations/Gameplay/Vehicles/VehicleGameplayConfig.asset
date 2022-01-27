@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091b5e1e50aa2894a91ef55aec12f1da, type: 3}
   m_Name: VehicleGameplayConfig
   m_EditorClassIdentifier: 
-  initialPosition: {x: 0, y: 0.2, z: 0}
+  initialPosition: {x: 0, y: 0.2, z: 4}
   initialScale: {x: 0.5, y: 0.5, z: 0.5}

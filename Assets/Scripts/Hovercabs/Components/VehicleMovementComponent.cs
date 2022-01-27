@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using DG.Tweening;
 using Hovercabs.Configurations.Gameplay.Vehicles;
 using Hovercabs.Configurations.Vehicles;
@@ -69,17 +70,33 @@ namespace Hovercabs.Components
         
         private void Update()
         {
-            if (_swipeController.SwipeLeft)  TurnLeft();
-            if (_swipeController.SwipeRight) TurnRight();
-            if (_swipeController.SwipeUp) Accelerate();
-            if (_swipeController.SwipeDown) Brake();
+            ProcessMovementEditor();
+            ProcessMovementMobile();
+            
+            if(_currentSpeed < _vehicleConfig.maxSpeed) Accelerate();
         }
 
+        [Conditional("UNITY_EDITOR")]
+        private void ProcessMovementEditor()
+        {
+            if(Input.GetKey(KeyCode.LeftArrow))  TurnLeft();
+            if(Input.GetKey(KeyCode.RightArrow)) TurnRight();
+            if (Input.GetKey(KeyCode.DownArrow)) Brake();
+        }
+
+        [Conditional("UNITY_ANDROID")]
+        private void ProcessMovementMobile()
+        {
+            if (_swipeController.SwipeLeft)  TurnLeft();
+            if (_swipeController.SwipeRight) TurnRight();
+            if (_swipeController.SwipeDown)  Brake();
+        }
+        
         private void Accelerate()
         {
             if (_currentSpeed > _vehicleConfig.maxSpeed) return;
 
-            _rigidbody.AddForce(new Vector3(0,0,_vehicleConfig.maxAcceleration*10f));
+            _rigidbody.AddForce(new Vector3(0,0,_vehicleConfig.maxAcceleration*2f));
         }
 
         private void Brake()

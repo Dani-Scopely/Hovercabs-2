@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Hovercabs.Models;
 
 namespace Hovercabs.Services
 {
@@ -11,11 +12,13 @@ namespace Hovercabs.Services
             
         }
 
-        public void InitLevelTracks()
+        public void InitLevelTracks(Level level)
         {
             _preloadedTrackIndexes?.Clear();
             _preloadedTrackIndexes = new Queue<string>();
 
+            PreloadInitialTrackArea(level);
+            
             var lastTaxiStop = "tr_taxi_off1kright";
             
             for (var i = 0; i < 100; i++)
@@ -31,6 +34,14 @@ namespace Hovercabs.Services
             }
         }
 
+        private void PreloadInitialTrackArea(Level level)
+        {
+            foreach (var entry in level.initialTracks)
+            {
+                _preloadedTrackIndexes.Enqueue(entry);
+            }
+        }
+        
         public string GetTrackId()
         {
             return _preloadedTrackIndexes.Dequeue();

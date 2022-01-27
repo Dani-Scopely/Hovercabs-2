@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: jp_carga1
   m_EditorClassIdentifier: 
   id: jp_carga1
-  maxSpeed: 0
+  maxSpeed: 20
   maxAcceleration: 2
   breakStrength: 2
   fuelConsumption: 500

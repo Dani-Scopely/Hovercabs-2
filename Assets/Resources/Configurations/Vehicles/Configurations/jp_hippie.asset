@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: jp_hippie
   m_EditorClassIdentifier: 
   id: jp_hippie
-  maxSpeed: 0
+  maxSpeed: 20
   maxAcceleration: 2
   breakStrength: 2
   fuelConsumption: 500

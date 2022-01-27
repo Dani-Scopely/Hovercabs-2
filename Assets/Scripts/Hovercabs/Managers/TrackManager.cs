@@ -21,15 +21,13 @@ namespace Hovercabs.Managers
         [SerializeField] private int bufferTrackSize = 10;
         [SerializeField] private float destroyDistanceFactor = 1.5f;
 
-        private Track _initialTrackData;
-
         private TrackService _trackService;
+        private LevelService _levelService;
         
-        public void Init(TrackService trackService, Track trackData)
+        public void Init(TrackService trackService, LevelService levelService)
         {
             _trackService = trackService;
-            
-            _initialTrackData = trackData;
+            _levelService = levelService;
             
             trackPool.Init();
             
@@ -49,7 +47,7 @@ namespace Hovercabs.Managers
         {
             DestroyAllTracks();
             
-            _trackService.InitLevelTracks();
+            _trackService.InitLevelTracks(_levelService.GetCurrentLevel());
         }
         
         public void SetVehicleController(VehicleController vehicleController)
@@ -73,18 +71,7 @@ namespace Hovercabs.Managers
         {
             var tData = new Track();
             
-            if (track == null)
-            {
-                tData = new Track
-                {
-                    Id = _trackService.GetTrackId(),
-                    IsStartTrack = false
-                };
-            }
-            else
-            {
-                tData = _initialTrackData;
-            }
+            tData = new Track { Id = _trackService.GetTrackId(), IsStartTrack = false };
 
             InitializeTrack(tData);
             
@@ -104,7 +91,7 @@ namespace Hovercabs.Managers
             trackController.TrackData = trackData;
             trackController.DestroyDistance = trackSize.z*destroyDistanceFactor;
             
-            go.transform.position = new Vector3(6, 0, trackData.IsStartTrack ? -trackSize.z : _accumulatedTrackSize);
+            go.transform.position = new Vector3(2, 0, trackData.IsStartTrack ? -trackSize.z : _accumulatedTrackSize);
             
             _accumulatedTrackSize += trackSize.z;
             
