@@ -15,10 +15,10 @@ MonoBehaviour:
   id: jp_carga0
   maxSpeed: 5
   maxAcceleration: 2
-  breakStrength: 2
+  breakStrength: 10
   fuelConsumption: 500
   timeToTurn: 0.2
-  level: 0
+  level: 20
   emblem: {fileID: -7045217869030421545, guid: af487362b3315c147b354cb9c1e28370, type: 3}
   prefabHigh: {fileID: 100000, guid: b2971f342436f554cb8fc245944869d2, type: 3}
   prefabLow: {fileID: 100000, guid: 90a535851c989ca48b7a90d4089fddc4, type: 3}

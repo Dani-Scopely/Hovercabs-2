@@ -32,7 +32,7 @@ namespace Hovercabs.Controllers
 
             OnGameOver = onGameOver;
             
-            gameplayCanvasController.Init(onQuit, onPause, profileService);
+            gameplayCanvasController.Init(onQuit, onPause, OnCountdownEnded, profileService);
 
             _raceResult = new Result();
             
@@ -46,6 +46,7 @@ namespace Hovercabs.Controllers
             levelController.OnFuelChanged += OnFuelChanged;
             levelController.OnOutOfFuel += OnOutOfFuel;
             levelController.OnPassengerDelivered += OnPassengerDelivered;
+            levelController.OnLevelReady += OnLevelReady;
             
             levelController.Init(trackManager, trackService, vehiclesService, profileService, levelService, vehicleGameplayConfig, vehiclesConfig);
         }
@@ -57,8 +58,19 @@ namespace Hovercabs.Controllers
             levelController.OnFuelChanged -= OnFuelChanged;
             levelController.OnOutOfFuel -= OnOutOfFuel;
             levelController.OnPassengerDelivered -= OnPassengerDelivered;
+            levelController.OnLevelReady -= OnLevelReady;
         }
 
+        private void OnLevelReady()
+        {
+            gameplayCanvasController.SetCountdown(5);
+        }
+
+        private void OnCountdownEnded()
+        {
+            levelController.Unlock();
+        }
+        
         private void OnDistanceChanged(float distance)
         {
             _raceResult.Distance = distance;

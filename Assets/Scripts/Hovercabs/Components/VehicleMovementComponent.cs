@@ -24,6 +24,7 @@ namespace Hovercabs.Components
         private Action<float> _onDistanceChanged;
         private Action<float> _onFuelChanged;
         private Action _onOutOfFuel;
+        private bool _isUnlocked;
         
         private void Awake()
         {
@@ -51,8 +52,15 @@ namespace Hovercabs.Components
             _currentFuel = 100f;
         }
 
+        public void Unlock()
+        {
+            _isUnlocked = true;
+        }
+        
         private void FixedUpdate()
         {
+            if (!_isUnlocked) return;
+            
             _distance = Math.Abs(Vector3.Distance(_vehicleGameplayConfig.initialPosition, transform.position));
             
             _currentSpeed = _rigidbody.velocity.z;
@@ -70,6 +78,8 @@ namespace Hovercabs.Components
         
         private void Update()
         {
+            if (!_isUnlocked) return;
+            
             ProcessMovementEditor();
             ProcessMovementMobile();
             

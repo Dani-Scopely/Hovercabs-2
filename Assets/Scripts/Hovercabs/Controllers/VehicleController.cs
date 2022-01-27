@@ -88,6 +88,11 @@ namespace Hovercabs.Controllers
             _currentPassenger = null;
             _passenger = null;
         }
+
+        public void Unlock()
+        {
+            _movementComponent.Unlock();    
+        }
         
         private void InitMovementController()
         {

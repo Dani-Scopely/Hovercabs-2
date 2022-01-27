@@ -15,10 +15,10 @@ MonoBehaviour:
   id: jp_hippie
   maxSpeed: 20
   maxAcceleration: 2
-  breakStrength: 2
+  breakStrength: 10
   fuelConsumption: 500
   timeToTurn: 0.2
-  level: 0
+  level: 20
   emblem: {fileID: 2554100596524748515, guid: af487362b3315c147b354cb9c1e28370, type: 3}
   prefabHigh: {fileID: 100000, guid: 33aa29c05cad2094e957ce8ee5ebd409, type: 3}
   prefabLow: {fileID: 100000, guid: 889d88a253c82464fbabc370e8e109ab, type: 3}

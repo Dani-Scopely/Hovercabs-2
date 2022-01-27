@@ -27,6 +27,7 @@ namespace Hovercabs.Controllers
         public Action<float> OnFuelChanged {get; set; }
         public Action<int> OnXenitsChanged { get; set; }
         public Action OnOutOfFuel { get; set; }
+        public Action OnLevelReady { get; set; }
         public Action<Passenger,bool> OnPassengerDelivered { get; set; }
         
         public void Init(TrackManager trackManager, TrackService trackService, VehiclesService vehiclesService, ProfileService profileService, LevelService levelService, VehicleGameplayConfig config, VehiclesConfig vehiclesConfig)
@@ -45,8 +46,15 @@ namespace Hovercabs.Controllers
             SetupCamera();
             
             _trackManager.Init(_trackService, _levelService);
+            
+            OnLevelReady?.Invoke();
         }
 
+        public void Unlock()
+        {
+            _vehicleController.Unlock();    
+        }
+        
         private void SetupVehicle()
         {
             var v = Instantiate(_currentVehicle.ModelLow, transform, true);
@@ -59,7 +67,7 @@ namespace Hovercabs.Controllers
             _vehicleController.Init(_config, _vehiclesConfig.GetVehicleConfig(_currentVehicle.Id));
             _trackManager.SetVehicleController(_vehicleController);
         }
-
+        
         private void OnDestroy()
         {
             _vehicleController.OnDistanceChanged -= OnDistanceChanged;

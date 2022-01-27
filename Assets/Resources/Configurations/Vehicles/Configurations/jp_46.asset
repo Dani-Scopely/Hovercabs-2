@@ -15,7 +15,7 @@ MonoBehaviour:
   id: jp_46
   maxSpeed: 10
   maxAcceleration: 2
-  breakStrength: 2
+  breakStrength: 10
   fuelConsumption: 500
   timeToTurn: 0.2
   level: 0

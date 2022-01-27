@@ -16,6 +16,7 @@ namespace Hovercabs.UI
         [SerializeField] private XenitsCanvasController xenitsCanvasController;
         [SerializeField] private PauseCanvasController pauseCanvasController;
         [SerializeField] private DistanceCanvasController distanceCanvasController;
+        [SerializeField] private CountdownCanvasController countdownCanvasController;
         
         private void Awake()
         {
@@ -33,11 +34,12 @@ namespace Hovercabs.UI
             _view.OnPauseClick -= OnPauseClick;
         }
 
-        public void Init(Action onQuitRace, Action<bool> onPause, ProfileService profileService)
+        public void Init(Action onQuitRace, Action<bool> onPause, Action onCountdownEnded, ProfileService profileService)
         {
             xenitsCanvasController.Init(profileService.Profile.Xenits);
             fuelCanvasController.Init();
             pauseCanvasController.Init(onQuitRace, onPause);
+            countdownCanvasController.Init(onCountdownEnded);
         }
 
         public void SetDistance(float distance)
@@ -58,6 +60,12 @@ namespace Hovercabs.UI
         public void SetFuel(float fuel)
         {
             fuelCanvasController.SetData(fuel);
+        }
+
+        public void SetCountdown(int from)
+        {
+            countdownCanvasController.SetData(from);
+            countdownCanvasController.gameObject.SetActive(true);
         }
     }
 }

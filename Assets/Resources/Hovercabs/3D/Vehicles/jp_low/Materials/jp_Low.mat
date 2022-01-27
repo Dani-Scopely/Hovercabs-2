@@ -86,7 +86,7 @@ Material:
     - MovementOffset: 0.3
     - MovementSpeed: 2.3
     - MovementStrength: 0.1
-    - RotationSpeed: 0.5
+    - RotationSpeed: 0
     - Vector1_2f4e4daacc0a47008679dfe77bf4d08d: 2.3
     - Vector1_4d21dc470f9a47a682ae10171aa50f78: 0.1
     - Vector1_5f7f6fa9ff4041f7acef78c9354026e8: 0.3
@@ -107,6 +107,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
