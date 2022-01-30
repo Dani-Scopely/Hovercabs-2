@@ -98,5 +98,10 @@ namespace Hovercabs.Controllers
         {
             _movementComponent.Init(_vehicleGameplayConfig, _vehicleConfig, OnDistanceChanged, OnFuelChanged, OnOutOfFuel);
         }
+
+        public void SetCurrentTrack(TrackController trackController)
+        {
+            _movementComponent.SetTrackController(trackController);
+        }
     }
 }

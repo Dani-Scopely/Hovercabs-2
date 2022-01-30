@@ -32,6 +32,15 @@ namespace Hovercabs.Controllers
         private void OnTriggerExit(Collider other)
         {
             _markToDestroy = other.CompareTag("Vehicle");
+            
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Vehicle"))
+            {
+                other.GetComponent<VehicleController>().SetCurrentTrack(this);
+            }
         }
 
         private void Update()

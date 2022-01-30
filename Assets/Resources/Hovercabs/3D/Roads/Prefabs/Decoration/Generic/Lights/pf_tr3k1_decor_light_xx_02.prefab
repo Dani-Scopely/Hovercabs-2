@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pf_tr3k1_decor_light_xx_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0.00000006657903, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 400022}
   - {fileID: 400016}
@@ -55,6 +56,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -98,7 +100,7 @@ GameObject:
   - component: {fileID: 400016}
   - component: {fileID: 3300006}
   - component: {fileID: 2300006}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: scn_XX_light_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,6 +117,7 @@ Transform:
   m_LocalRotation: {x: -0.7071069, y: 0, z: 0, w: 0.70710677}
   m_LocalPosition: {x: -12.378906, y: 0, z: 2.01083}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 400000}
   m_RootOrder: 1
@@ -138,6 +141,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -180,7 +184,7 @@ GameObject:
   - component: {fileID: 3300002}
   - component: {fileID: 6400000}
   - component: {fileID: 2300002}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: light_coco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,6 +201,7 @@ Transform:
   m_LocalRotation: {x: 0.49999997, y: 0.49999997, z: -0.50000006, w: 0.50000006}
   m_LocalPosition: {x: -1.5705566, y: 0.07409694, z: 1.961113}
   m_LocalScale: {x: 3.3079517, y: 3.1410143, z: 4}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 400000}
   m_RootOrder: 2
@@ -234,6 +239,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -276,7 +282,7 @@ GameObject:
   - component: {fileID: 3300004}
   - component: {fileID: 6400002}
   - component: {fileID: 2300004}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: light_coco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,6 +299,7 @@ Transform:
   m_LocalRotation: {x: -0.50000006, y: 0.50000006, z: 0.49999997, w: 0.49999997}
   m_LocalPosition: {x: -10.447632, y: 0.11804226, z: 1.986351}
   m_LocalScale: {x: 3.3079517, y: 3.1410143, z: 4}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 400000}
   m_RootOrder: 3
@@ -330,6 +337,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -371,7 +379,7 @@ GameObject:
   - component: {fileID: 400022}
   - component: {fileID: 3300008}
   - component: {fileID: 2300008}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: scn_XX_light_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,6 +396,7 @@ Transform:
   m_LocalRotation: {x: 0.000000030908627, y: 0.7071069, z: 0.70710677, w: -0.00000003090862}
   m_LocalPosition: {x: 0.37890625, y: 0, z: 2.0108223}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 400000}
   m_RootOrder: 0
@@ -411,6 +420,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1

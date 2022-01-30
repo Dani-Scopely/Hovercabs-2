@@ -19,7 +19,7 @@ namespace Hovercabs.Controllers
             fpos.x = tpos.x;
             fpos.y = tpos.y;
             transform.position = fpos;
-            transform.position += new Vector3(0, 4, -3.5f);
+            transform.position += new Vector3(0, 7, -0.5f);
         }
     }
 }

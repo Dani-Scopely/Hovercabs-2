@@ -4,7 +4,9 @@ using DG.Tweening;
 using Hovercabs.Configurations.Gameplay.Vehicles;
 using Hovercabs.Configurations.Vehicles;
 using Hovercabs.Controllers;
+using Hovercabs.Models;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace Hovercabs.Components
 {
@@ -16,20 +18,28 @@ namespace Hovercabs.Components
         private float _currentFuel;
         private bool _isTurningRight;
         private bool _isTurningLeft;
+        private bool _canTurnLeft = true;
+        private bool _canTurnRight = true;
         private Sequence _sequence;
         private Rigidbody _rigidbody;
         private VehicleConfig _vehicleConfig;
         private VehicleGameplayConfig _vehicleGameplayConfig;
         private SwipeController _swipeController;
+        private TrackController _trackController;
         private Action<float> _onDistanceChanged;
         private Action<float> _onFuelChanged;
         private Action _onOutOfFuel;
         private bool _isUnlocked;
+
+        private int _layerMask = 0;
+
+        [SerializeField] private string currentTrackId;
         
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
             _swipeController = GetComponent<SwipeController>();
+            _layerMask = LayerMask.GetMask("Road");
         }
 
         public void Init(VehicleGameplayConfig vehicleGameplayConfig, VehicleConfig vehicleConfig, 
@@ -56,10 +66,35 @@ namespace Hovercabs.Components
         {
             _isUnlocked = true;
         }
+
+        public void SetTrackController(TrackController trackController)
+        {
+            _trackController = trackController;
+        }
+
+        private bool _isInRoad;
+        
+        private void CheckRoad()
+        {
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out var hit, 20, _layerMask))
+            {
+                _isInRoad = true;
+                //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down)*hit.distance, Color.yellow);
+                //Debug.Log($"I'm in {_trackController.name}");
+            }
+            else
+            {
+                _isInRoad = false;
+            }
+
+            currentTrackId = _isInRoad ? _trackController.name : "null";
+        }
         
         private void FixedUpdate()
         {
             if (!_isUnlocked) return;
+            
+            CheckRoad();
             
             _distance = Math.Abs(Vector3.Distance(_vehicleGameplayConfig.initialPosition, transform.position));
             
@@ -75,7 +110,7 @@ namespace Hovercabs.Components
                 _onOutOfFuel?.Invoke();
             }
         }
-        
+
         private void Update()
         {
             if (!_isUnlocked) return;
@@ -122,7 +157,7 @@ namespace Hovercabs.Components
         
         private void TurnRight()
         {
-            if (_isTurningRight || _isTurningLeft ) return;
+            if (_isTurningRight || _isTurningLeft || !_canTurnRight ) return;
 
             var currentPosition = transform.position;
             var newPosition = currentPosition + new Vector3(4f, 0, 0);
@@ -137,7 +172,7 @@ namespace Hovercabs.Components
         
         private void TurnLeft()
         {
-            if (_isTurningLeft || _isTurningLeft) return;
+            if (_isTurningLeft || _isTurningLeft || !_canTurnLeft) return;
 
             var currentPosition = transform.position;
             var newPosition = currentPosition + new Vector3(-4f, 0, 0);
